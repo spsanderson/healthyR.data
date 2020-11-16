@@ -1,10 +1,10 @@
 Package: healthyR.data
-Title: Data Only Package to healthyR
+Title: Data Only Package to 'healthyR'
 Version: 1.0.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
-Description: Provides data for functions typically used in the healthyR package.
+Description: Provides data for functions typically used in the 'healthyR' package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
