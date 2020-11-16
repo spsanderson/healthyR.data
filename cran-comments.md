@@ -8,3 +8,7 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+## Testing Builds
+* passed rhub::check_for_cran()
+* passed devtools::check_win_devel()
