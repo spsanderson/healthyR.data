@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# healthyR.data
+# healthyR.data <img src="man/figures/healthyR_data_logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 <!-- badges: end -->
