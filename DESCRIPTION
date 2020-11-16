@@ -4,7 +4,7 @@ Version: 1.0.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
-Description: Provides data for functions typically used in healthyR.
+Description: Provides data for functions typically used in the healthyR package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
