@@ -13,8 +13,8 @@ functions or any function you create.
 
 ## Installation
 
-NOT YET ON CRAN - You can install the released version of healthyR.data
-from [CRAN](https://CRAN.R-project.org) with:
+SUBMITTED TO CRAN - You can install the released version of
+healthyR.data from [CRAN](https://CRAN.R-project.org) with:
 
     install.packages("healthyR.data")
 

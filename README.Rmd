@@ -24,7 +24,7 @@ administrative data-set allowing for the testing of functions inside of the
 
 ## Installation
 
-NOT YET ON CRAN - You can install the released version of healthyR.data from [CRAN](https://CRAN.R-project.org) with:
+SUBMITTED TO CRAN - You can install the released version of healthyR.data from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("healthyR.data")
