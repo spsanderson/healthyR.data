@@ -28,5 +28,5 @@
 #' @keywords datasets
 #' @name healthyR_data
 #' @usage data(healthyR_data)
-#' @format A data frame with 473,252 rows and 17 variables
+#' @format A data frame with 187,721 rows and 17 variables
 "healthyR_data"

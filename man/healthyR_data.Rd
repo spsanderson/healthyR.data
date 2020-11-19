@@ -5,7 +5,7 @@
 \alias{healthyR_data}
 \title{Main data file for healthyR}
 \format{
-A data frame with 473,252 rows and 17 variables
+A data frame with 187,721 rows and 17 variables
 }
 \usage{
 data(healthyR_data)
