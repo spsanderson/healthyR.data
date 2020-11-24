@@ -1,4 +1,5 @@
 # healthyR.data 1.0.0
+* Version 1.0.0 Released onto CRAN
 
 # healthyR.data 0.0.0.9000
 
