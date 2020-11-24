@@ -16,6 +16,9 @@ knitr::opts_chunk$set(
 # healthyR.data <img src="man/figures/healthyR_data_logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/healthyR.data)](https://cran.r-project.org/package=healthyR.data)
+![](http://cranlogs.r-pkg.org/badges/healthyR.data?color=brightgreen)
+![](http://cranlogs.r-pkg.org/badges/grand-total/healthyR.data?color=brightgreen)
 <!-- badges: end -->
 
 The goal of the { healthyR.data } package is to provide a simple yet feature rich
