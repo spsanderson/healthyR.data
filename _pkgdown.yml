@@ -1,6 +1,8 @@
 template:
   params:
     bootswatch: flatly
+    includes:
+       in_header: GA_Script.html
 
 navbar:
   title: "healthyR.data"
