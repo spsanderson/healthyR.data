@@ -44,7 +44,17 @@ devtools::install_github("spsanderson/healthyR.data")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, message=FALSE, warning=FALSE}
 library(healthyR.data)
-## basic example code
+library(dplyr)
+
+df <- healthyR_data
+
+glimpse(df)
+
+df %>% 
+    count(ip_op_flag, service_line) %>%
+    arrange(ip_op_flag, desc(n)) %>%
+    rename(count = n)
+
 ```

@@ -99,7 +99,49 @@
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/healthyR.data">healthyR.data</a></span><span class="op">)</span>
-<span class="co">## basic example code</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">healthyR_data</span>
+
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 187,721</span>
+<span class="co">#&gt; Columns: 17</span>
+<span class="co">#&gt; $ mrn                      &lt;chr&gt; "86069614", "60856527", "80673110", "55897...</span>
+<span class="co">#&gt; $ visit_id                 &lt;chr&gt; "3519249247", "3602225015", "3125290892", ...</span>
+<span class="co">#&gt; $ visit_start_date_time    &lt;dttm&gt; 2010-01-04 05:00:00, 2010-01-04 05:00:00,...</span>
+<span class="co">#&gt; $ visit_end_date_time      &lt;dttm&gt; 2010-01-04, 2010-01-04, 2010-01-04, 2010-...</span>
+<span class="co">#&gt; $ total_charge_amount      &lt;dbl&gt; 25983.88, 22774.05, 10690.45, 8788.02, 732...</span>
+<span class="co">#&gt; $ total_amount_due         &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 201.52, 20.0...</span>
+<span class="co">#&gt; $ total_adjustment_amount  &lt;dbl&gt; -20799.61, -12978.37, -7596.09, -7663.57, ...</span>
+<span class="co">#&gt; $ payer_grouping           &lt;chr&gt; "Medicare B", "Medicare HMO", "HMO", "Medi...</span>
+<span class="co">#&gt; $ total_payment_amount     &lt;dbl&gt; -5184.27, -9795.68, -3094.36, -1124.45, -1...</span>
+<span class="co">#&gt; $ ip_op_flag               &lt;chr&gt; "O", "O", "O", "O", "O", "O", "O", "O", "O...</span>
+<span class="co">#&gt; $ service_line             &lt;chr&gt; "General Outpatient", "General Outpatient"...</span>
+<span class="co">#&gt; $ length_of_stay           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
+<span class="co">#&gt; $ expected_length_of_stay  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
+<span class="co">#&gt; $ length_of_stay_threshold &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
+<span class="co">#&gt; $ los_outlier_flag         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
+<span class="co">#&gt; $ readmit_flag             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
+<span class="co">#&gt; $ readmit_expectation      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
+
+<span class="va">df</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">ip_op_flag</span>, <span class="va">service_line</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">ip_op_flag</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>count <span class="op">=</span> <span class="va">n</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 30 x 3</span>
+<span class="co">#&gt;    ip_op_flag service_line                                 count</span>
+<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                                        &lt;int&gt;</span>
+<span class="co">#&gt;  1 I          Medical                                      64435</span>
+<span class="co">#&gt;  2 I          Surgical                                     14916</span>
+<span class="co">#&gt;  3 I          COPD                                          4398</span>
+<span class="co">#&gt;  4 I          CHF                                           3871</span>
+<span class="co">#&gt;  5 I          Pneumonia                                     3323</span>
+<span class="co">#&gt;  6 I          Cellulitis                                    3311</span>
+<span class="co">#&gt;  7 I          Major Depression/Bipolar Affective Disorders  2866</span>
+<span class="co">#&gt;  8 I          Chest Pain                                    2766</span>
+<span class="co">#&gt;  9 I          GI Hemorrhage                                 2404</span>
+<span class="co">#&gt; 10 I          MI                                            2253</span>
+<span class="co">#&gt; # ... with 20 more rows</span></code></pre></div>
 </div>
 </div>
   </div>
