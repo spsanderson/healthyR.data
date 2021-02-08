@@ -9,7 +9,7 @@
 ![](http://cranlogs.r-pkg.org/badges/healthyR.data?color=brightgreen)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/healthyR.data?color=brightgreen)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html##stable)
 <!-- badges: end -->
 
 The goal of the { healthyR.data } package is to provide a simple yet
