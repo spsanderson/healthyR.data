@@ -103,26 +103,26 @@
 
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">healthyR_data</span>
 
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 187,721</span>
 <span class="co">#&gt; Columns: 17</span>
-<span class="co">#&gt; $ mrn                      &lt;chr&gt; "86069614", "60856527", "80673110", "55897...</span>
-<span class="co">#&gt; $ visit_id                 &lt;chr&gt; "3519249247", "3602225015", "3125290892", ...</span>
-<span class="co">#&gt; $ visit_start_date_time    &lt;dttm&gt; 2010-01-04 05:00:00, 2010-01-04 05:00:00,...</span>
-<span class="co">#&gt; $ visit_end_date_time      &lt;dttm&gt; 2010-01-04, 2010-01-04, 2010-01-04, 2010-...</span>
-<span class="co">#&gt; $ total_charge_amount      &lt;dbl&gt; 25983.88, 22774.05, 10690.45, 8788.02, 732...</span>
-<span class="co">#&gt; $ total_amount_due         &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 201.52, 20.0...</span>
-<span class="co">#&gt; $ total_adjustment_amount  &lt;dbl&gt; -20799.61, -12978.37, -7596.09, -7663.57, ...</span>
-<span class="co">#&gt; $ payer_grouping           &lt;chr&gt; "Medicare B", "Medicare HMO", "HMO", "Medi...</span>
-<span class="co">#&gt; $ total_payment_amount     &lt;dbl&gt; -5184.27, -9795.68, -3094.36, -1124.45, -1...</span>
-<span class="co">#&gt; $ ip_op_flag               &lt;chr&gt; "O", "O", "O", "O", "O", "O", "O", "O", "O...</span>
-<span class="co">#&gt; $ service_line             &lt;chr&gt; "General Outpatient", "General Outpatient"...</span>
-<span class="co">#&gt; $ length_of_stay           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
-<span class="co">#&gt; $ expected_length_of_stay  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
-<span class="co">#&gt; $ length_of_stay_threshold &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
-<span class="co">#&gt; $ los_outlier_flag         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
-<span class="co">#&gt; $ readmit_flag             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</span>
-<span class="co">#&gt; $ readmit_expectation      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</span>
+<span class="co">#&gt; $ mrn                      &lt;chr&gt; "86069614", "60856527", "80673110", "55897373~</span>
+<span class="co">#&gt; $ visit_id                 &lt;chr&gt; "3519249247", "3602225015", "3125290892", "38~</span>
+<span class="co">#&gt; $ visit_start_date_time    &lt;dttm&gt; 2010-01-04 05:00:00, 2010-01-04 05:00:00, 20~</span>
+<span class="co">#&gt; $ visit_end_date_time      &lt;dttm&gt; 2010-01-04, 2010-01-04, 2010-01-04, 2010-01-~</span>
+<span class="co">#&gt; $ total_charge_amount      &lt;dbl&gt; 25983.88, 22774.05, 10690.45, 8788.02, 7325.1~</span>
+<span class="co">#&gt; $ total_amount_due         &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 201.52, 20.00, ~</span>
+<span class="co">#&gt; $ total_adjustment_amount  &lt;dbl&gt; -20799.61, -12978.37, -7596.09, -7663.57, -60~</span>
+<span class="co">#&gt; $ payer_grouping           &lt;chr&gt; "Medicare B", "Medicare HMO", "HMO", "Medicar~</span>
+<span class="co">#&gt; $ total_payment_amount     &lt;dbl&gt; -5184.27, -9795.68, -3094.36, -1124.45, -1269~</span>
+<span class="co">#&gt; $ ip_op_flag               &lt;chr&gt; "O", "O", "O", "O", "O", "O", "O", "O", "O", ~</span>
+<span class="co">#&gt; $ service_line             &lt;chr&gt; "General Outpatient", "General Outpatient", "~</span>
+<span class="co">#&gt; $ length_of_stay           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~</span>
+<span class="co">#&gt; $ expected_length_of_stay  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~</span>
+<span class="co">#&gt; $ length_of_stay_threshold &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~</span>
+<span class="co">#&gt; $ los_outlier_flag         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~</span>
+<span class="co">#&gt; $ readmit_flag             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~</span>
+<span class="co">#&gt; $ readmit_expectation      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~</span>
 
 <span class="va">df</span> <span class="op">%&gt;%</span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">ip_op_flag</span>, <span class="va">service_line</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -178,6 +178,7 @@
 <ul class="list-unstyled">
 <li><a href="https://cran.r-project.org/package=healthyR.data"><img src="http://www.r-pkg.org/badges/version/healthyR.data" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html##stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a></li>
 </ul>
 </div>
 </div>
