@@ -1,3 +1,5 @@
+# healthyR.data (development version)
+
 # healthyR.data 1.0.1
 * The CRAN policy asks for minimal package size, which includes installed
 size. Add LazyDataCompression: xz to DESCRIPTION file per CRAN
