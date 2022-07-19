@@ -1,7 +1,8 @@
+url: https://www.spsanderson.com/healthyR.data/
 template:
-  params:
-    bootswatch: flatly
-    ganalytics: G-4RZQC8RGH5
+  bootstrap: 5
+  bootswatch: flatly
+  ganalytics: G-4RZQC8RGH5
 
 navbar:
   title: "healthyR.data"
