@@ -1,5 +1,14 @@
 # healthyR.data (development version)
 
+## Breaking Changes
+None
+
+## New Functions
+None
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.data 1.0.2
 
 ## Breaking Changes
