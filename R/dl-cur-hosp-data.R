@@ -58,7 +58,7 @@ current_hosp_data <- function() {
         normalizePath(file, "/") |>
             # read in the csv file and use check.names = FALSE because some of
             # the names are very long
-            read.csv(check.names = FALSE) |>
+            utils::read.csv(check.names = FALSE) |>
             # clean the field names
             janitor::clean_names()
         }
