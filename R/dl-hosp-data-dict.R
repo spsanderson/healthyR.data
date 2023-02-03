@@ -13,6 +13,9 @@
 #' makes use of [utils::choose.dir()] and will ask the user where to save the
 #' file.
 #'
+#' @param .open_folder The default is FALSE. If set to TRUE then the folder where
+#' the file was saved to will be opened.
+#'
 #' @examples
 #' \dontrun{
 #'   current_hosp_data_dict()
@@ -29,11 +32,11 @@ NULL
 
 # Create the workflow set object
 
-current_hosp_data_dict <- function() {
+current_hosp_data_dict <- function(.open_folder = FALSE) {
 
     # Create a temporary file to store the zip file
-    file_path <- utils::choose.dir()
-    destfile <- paste0(file_path, "\\Hospital_Data_Dictionary.pdf")
+    f_path <- utils::choose.dir()
+    destfile <- paste0(f_path, "\\Hospital_Data_Dictionary.pdf")
 
     # Download the zip file to the temporary location
     url <- "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf"
@@ -43,14 +46,20 @@ current_hosp_data_dict <- function() {
         mode = "wb"
     )
 
-    # Return the tibbles
+    # Return Message
     rlang::inform(
         message = paste0(
             "The Hospital Data Dictionary has been downloaded to: ",
-            file_path,
+            f_path,
             "\\",
             basename(url)
         ),
         use_cli_format = TRUE
     )
+
+    # Open file folder?
+    if (.open_folder){
+        shell.exec(f_path)
+    }
+
 }
