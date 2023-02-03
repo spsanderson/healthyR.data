@@ -4,7 +4,11 @@
 \alias{current_hosp_data_dict}
 \title{Download Hospital Data Dictionary}
 \usage{
-current_hosp_data_dict()
+current_hosp_data_dict(.open_folder = FALSE)
+}
+\arguments{
+\item{.open_folder}{The default is FALSE. If set to TRUE then the folder where
+the file was saved to will be opened.}
 }
 \value{
 Downloads the current hospital data dictionary to a place specified by the user.
