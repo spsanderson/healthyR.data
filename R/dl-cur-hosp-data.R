@@ -55,7 +55,7 @@ current_hosp_data <- function() {
     # Process CSV Files
     csv_file_tbl <- csv_file_list |>
         purrr::map(
-            ~ normalizePath(.x, "/") |>
+            \(file) normalizePath(file, "/") |>
                 read.csv(check.names = FALSE) |>
                 janitor::clean_names()
         )
@@ -63,7 +63,7 @@ current_hosp_data <- function() {
     path_remove <- paste0(normalizePath(tmp_dir, "/"),"/")
     file_names <- csv_file_list |>
         purrr::map(
-            ~ normalizePath(.x, "/") |>
+            \(file) normalizePath(file, "/") |>
                 gsub(pattern = path_remove, replacement = "") |>
                 gsub(pattern = "-", replacement = "_")
         )
