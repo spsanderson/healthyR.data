@@ -4,7 +4,7 @@
 None
 
 ## New Functions
-None
+1. Fix #12 - Add function `dl_hosp_data_dict()`
 
 ## Minor Fixes and Improvements
 None

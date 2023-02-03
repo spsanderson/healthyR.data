@@ -9,7 +9,18 @@ navbar:
   left:
     - icon: "fa-home"
       href: index.html
-    - text: "Data"
+    - text: "Function Reference"
       href: reference/index.html
     - text: "News"
       href: news/index.html
+
+reference:
+  -  title: Data Dictioaries
+     desc: Different Data Dictionaries
+     contents:
+     -  has_concept("Data Dictionary")
+  -  title: Built In Data
+     contents:
+     -  "healthyR_data"
+
+search:
