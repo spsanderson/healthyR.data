@@ -15,10 +15,14 @@ navbar:
       href: news/index.html
 
 reference:
-  -  title: Data Dictioaries
+  -  title: Data Dictionaries
      desc: Different Data Dictionaries
      contents:
      -  has_concept("Data Dictionary")
+  -  title: Data Files
+     desc: Hospital Data Files
+     contents:
+     -  has_concept("Hospital Data")
   -  title: Built In Data
      contents:
      -  "healthyR_data"
