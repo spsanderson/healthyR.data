@@ -1,10 +1,11 @@
 # healthyR.data (development version)
 
 ## Breaking Changes
-None
+1. Require R version 3.4.0 in keeping with tidyverse practices.
 
 ## New Functions
 1. Fix #12 - Add function `dl_hosp_data_dict()`
+2. Fix #10 - Add function `current_hosp_data()`
 
 ## Minor Fixes and Improvements
 None

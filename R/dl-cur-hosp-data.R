@@ -43,7 +43,7 @@ current_hosp_data <- function() {
     )
 
     # Unzip the file
-    unzip(tmp, exdir = tempdir())
+    utils::unzip(tmp, exdir = tempdir())
 
     # Read the csv files into tibbles
     csv_file_list <- list.files(
@@ -56,7 +56,7 @@ current_hosp_data <- function() {
     csv_file_tbl <- csv_file_list |>
         purrr::map(
             \(file) normalizePath(file, "/") |>
-                read.csv(check.names = FALSE) |>
+                utils::read.csv(check.names = FALSE) |>
                 janitor::clean_names()
         )
 
