@@ -45,7 +45,7 @@ current_hosp_data <- function() {
     # Unzip the file
     utils::unzip(tmp, exdir = tempdir())
 
-    # Read the csv files into tibbles
+    # Read the csv files into a list
     csv_file_list <- list.files(
         path = tempdir(),
         pattern = "\\.csv$",
@@ -53,24 +53,38 @@ current_hosp_data <- function() {
     )
 
     # Process CSV Files
-    csv_file_tbl <- csv_file_list |>
-        purrr::map(
-            \(file) normalizePath(file, "/") |>
-                utils::read.csv(check.names = FALSE) |>
-                janitor::clean_names()
-        )
+    parse_csv_file <- function(file) {
+        # Normalize the path to use C:/path/to/file structure
+        normalizePath(file, "/") |>
+            # read in the csv file and use check.names = FALSE because some of
+            # the names are very long
+            read.csv(check.names = FALSE) |>
+            # clean the field names
+            janitor::clean_names()
+        }
 
+    csv_file_tbl <- lapply(csv_file_list, parse_csv_file)
+
+    # Get File Names
+    # Get the tmp_dir in normal form C:/path/to/file
     path_remove <- paste0(normalizePath(tmp_dir, "/"),"/")
-    file_names <- csv_file_list |>
-        purrr::map(
-            \(file) normalizePath(file, "/") |>
-                gsub(pattern = path_remove, replacement = "") |>
-                gsub(pattern = "-", replacement = "_")
-        )
 
+    # Get csv names function
+    get_csv_names <- function(file) {
+        # Process the path to normal form
+        normalizePath(file, "/") |>
+            # remove the tmp_dir from the full file string
+            gsub(pattern = path_remove, replacement = "") |>
+            # change all - to _
+            gsub(pattern = "-", replacement = "_")
+        }
+    # Get the names
+    file_names <- lapply(csv_file_list, get_csv_names)
+    # apply the names
     names(csv_file_tbl) <- file_names
 
-    csv_file_tbl <- purrr::map(csv_file_tbl, dplyr::as_tibble)
+    # Make the result a tibble for each file.
+    csv_file_tbl <- lapply(csv_file_tbl, dplyr::as_tibble)
 
     unlink(tmp_dir, recursive = TRUE)
 
