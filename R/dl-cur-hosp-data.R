@@ -6,13 +6,22 @@
 #'
 #' @seealso \url{https://data.cms.gov/provider-data/topics/hospitals/}
 #'
-#' @description Download the Hospital Data Dictionary
+#' @description Download the current Hospital Data Sets.
 #'
-#' @details This function will download the current Hospital Data Dictionary for
-#' the official hospital data sets from the __CMS.gov__ website. The function
-#' makes use of a temporary directory and file to save and unzip the data. This
-#' will grab the current Hospital Data Files, unzip them and return a list of
-#' tibbles with each tibble named after the data file.
+#' @details This function will download the current and the official hospital
+#' data sets from the __CMS.gov__ website.
+#'
+#' The function makes use of a temporary directory and file to save and unzip
+#' the data. This will grab the current Hospital Data Files, unzip them and
+#' return a list of tibbles with each tibble named after the data file.
+#'
+#' The function returns a list object with all of the current hospital data as a
+#' tibble. It does not save the data anywhere so if you want to save it you will
+#' have to do that manually.
+#'
+#' This also means that you would have to store the data as a variable in order
+#' to access the data later on. It does have a given attributes and a class so
+#' that it can be piped into other functions.
 #'
 #' @examples
 #' \dontrun{
@@ -20,15 +29,13 @@
 #' }
 #'
 #' @return
-#' Downloads the current hospital data dictionary to a place specified by the user.
+#' Downloads the current hospital data sets.
 #'
 #' @name current_hosp_data
 NULL
 
 #' @export
 #' @rdname current_hosp_data
-
-# Create the workflow set object
 
 current_hosp_data <- function() {
 
@@ -89,5 +96,9 @@ current_hosp_data <- function() {
     unlink(tmp_dir, recursive = TRUE)
 
     # Return the tibbles
+    # Add and attribute and a class type to the object
+    attr(csv_file_tbl, ".list_type") <- "current_hosp_data"
+    class(csv_file_tbl) <- c("current_hosp_data", class(csv_file_tbl))
+
     return(csv_file_tbl)
 }

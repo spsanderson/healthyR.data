@@ -7,17 +7,26 @@
 current_hosp_data()
 }
 \value{
-Downloads the current hospital data dictionary to a place specified by the user.
+Downloads the current hospital data sets.
 }
 \description{
-Download the Hospital Data Dictionary
+Download the current Hospital Data Sets.
 }
 \details{
-This function will download the current Hospital Data Dictionary for
-the official hospital data sets from the \strong{CMS.gov} website. The function
-makes use of a temporary directory and file to save and unzip the data. This
-will grab the current Hospital Data Files, unzip them and return a list of
-tibbles with each tibble named after the data file.
+This function will download the current and the official hospital
+data sets from the \strong{CMS.gov} website.
+
+The function makes use of a temporary directory and file to save and unzip
+the data. This will grab the current Hospital Data Files, unzip them and
+return a list of tibbles with each tibble named after the data file.
+
+The function returns a list object with all of the current hospital data as a
+tibble. It does not save the data anywhere so if you want to save it you will
+have to do that manually.
+
+This also means that you would have to store the data as a variable in order
+to access the data later on. It does have a given attributes and a class so
+that it can be piped into other functions.
 }
 \examples{
 \dontrun{
@@ -27,6 +36,9 @@ tibbles with each tibble named after the data file.
 }
 \seealso{
 \url{https://data.cms.gov/provider-data/topics/hospitals/}
+
+Other Hospital Data: 
+\code{\link{current_asc_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
