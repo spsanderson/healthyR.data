@@ -21,6 +21,10 @@
 #' *  National
 #' *  State
 #'
+#' You can also pass things like c("state","Nation") as behind the scense only
+#' the Ambulatory Surgery Center datasets are available to the function to choose
+#' from and `grep` is used to find matches with `ignore.case = TRUE` set.
+#'
 #' @examples
 #' \dontrun{
 #' library(dplyr)
