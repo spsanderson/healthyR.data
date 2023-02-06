@@ -45,13 +45,6 @@ current_asc_data <- function(.data, .data_sets) {
     l <- .data
 
     # Checks
-    if (!is.list(l)){
-        rlang::abort(
-            message = "'.data' must be a list object",
-            use_cli_format = TRUE
-        )
-    }
-
     if (!inherits(l, "current_hosp_data")){
         rlang::abort(
             message = "'.data' must come from the function 'current_hosp_data()",
@@ -60,14 +53,15 @@ current_asc_data <- function(.data, .data_sets) {
     }
 
     # Manipulations
-    keep_names_vec <- c("ASC_Facility.csv","ASC_National.csv","ASC_State.csv")
-    asc_list <- l[names(l) %in% keep_names_vec]
+    # Get the exact files necessary to the ASC
+    file_names_vec <- c("ASC_Facility.csv","ASC_National.csv","ASC_State.csv")
+    asc_list <- l[names(l) %in% file_names_vec]
 
     # Make sure there are no 0 length items
     asc_list <- asc_list[lapply(asc_list, length) > 0]
     # Only keep the names we want
     ret <- asc_list[grep(
-        paste(keep_names_vec, collapse = "|"),
+        paste(ds, collapse = "|"),
         names(asc_list),
         ignore.case = TRUE
         )]

@@ -39,22 +39,26 @@ NULL
 
 current_hosp_data <- function() {
 
+    # URL for file
+    url <- "https://data.cms.gov/provider-data/sites/default/files/archive/Hospitals/current/hospitals_current_data.zip"
+    f_name <- basename(url)
+
     # Create a temporary file to store the zip file
     tmp <- tempfile()
     tmp_dir <- tempdir()
 
     # Download the zip file to the temporary location
     utils::download.file(
-        url = "https://data.cms.gov/provider-data/sites/default/files/archive/Hospitals/current/hospitals_current_data.zip",
+        url = url,
         destfile = tmp
     )
 
     # Unzip the file
-    utils::unzip(tmp, exdir = tempdir())
+    utils::unzip(tmp, exdir = tmp_dir)
 
     # Read the csv files into a list
     csv_file_list <- list.files(
-        path = tempdir(),
+        path = tmp_dir,
         pattern = "\\.csv$",
         full.names = TRUE
     )
@@ -87,13 +91,14 @@ current_hosp_data <- function() {
         }
     # Get the names
     file_names <- lapply(csv_file_list, get_csv_names)
+
     # apply the names
     names(csv_file_tbl) <- file_names
 
     # Make the result a tibble for each file.
     csv_file_tbl <- lapply(csv_file_tbl, dplyr::as_tibble)
 
-    unlink(tmp_dir, recursive = TRUE)
+    unlink(tmp, recursive = TRUE)
 
     # Return the tibbles
     # Add and attribute and a class type to the object
