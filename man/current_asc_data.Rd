@@ -15,7 +15,11 @@ sets that are in the file. You can choose from the following:
 \item Facility
 \item National
 \item State
-}}
+}
+
+You can also pass things like c("state","Nation") as behind the scense only
+the Ambulatory Surgery Center datasets are available to the function to choose
+from and \code{grep} is used to find matches with \code{ignore.case = TRUE} set.}
 }
 \value{
 Gets the current ASC data from the current hospital data file.
