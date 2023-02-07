@@ -4,13 +4,14 @@
 \alias{current_asc_data}
 \title{Get Current Ambulatory Surgery Center Data.}
 \usage{
-current_asc_data(.data, .data_sets)
+current_asc_data(.data, .data_sets = c("Facility", "State", "National"))
 }
 \arguments{
 \item{.data}{The data that results from the \code{current_hosp_data()} function.}
 
-\item{.data_sets}{The default is NULL, which will bring back all of the data
-sets that are in the file. You can choose from the following:
+\item{.data_sets}{The default is: c("Facility","State","National"), which will
+bring back all of the data in the Ambulatory Surgery Center data sets that
+are in the file. You can choose from the following:
 \itemize{
 \item Facility
 \item National
@@ -31,8 +32,7 @@ Get the current Ambulatory Surgery Center data.
 This function will obtain the current Ambulatory Surgery Center data
 from the output of the \code{\link[=current_hosp_data]{current_hosp_data()}} function, that is
 the required input for the \code{.data} parameter. You can pass in a list of which
-of those data sets you would like, if you return NULL then all of the data sets
-will be returned in a list object.
+of those data sets you would like,
 }
 \examples{
 \dontrun{
@@ -47,6 +47,7 @@ current_hosp_data() \%>\%
 \url{https://data.cms.gov/provider-data/topics/hospitals/}
 
 Other Hospital Data: 
+\code{\link{current_asc_oas_cahps_data}()},
 \code{\link{current_hosp_data}()}
 }
 \author{
