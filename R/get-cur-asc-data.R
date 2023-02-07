@@ -11,12 +11,12 @@
 #' @details This function will obtain the current Ambulatory Surgery Center data
 #' from the output of the [healthyR.data::current_hosp_data()] function, that is
 #' the required input for the `.data` parameter. You can pass in a list of which
-#' of those data sets you would like, if you return NULL then all of the data sets
-#' will be returned in a list object.
+#' of those data sets you would like,
 #'
 #' @param .data The data that results from the `current_hosp_data()` function.
-#' @param .data_sets The default is NULL, which will bring back all of the data
-#' sets that are in the file. You can choose from the following:
+#' @param .data_sets The default is: c("Facility","State","National"), which will
+#' bring back all of the data in the Ambulatory Surgery Center data sets that
+#' are in the file. You can choose from the following:
 #' *  Facility
 #' *  National
 #' *  State
@@ -42,7 +42,8 @@ NULL
 #' @export
 #' @rdname current_asc_data
 
-current_asc_data <- function(.data, .data_sets) {
+current_asc_data <- function(.data,
+                             .data_sets = c("Facility","State","National")) {
 
     # Variables
     ds <- .data_sets
