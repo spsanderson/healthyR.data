@@ -62,7 +62,8 @@ current_asc_data <- function(.data, .data_sets) {
     asc_list <- l[names(l) %in% file_names_vec]
 
     # Make sure there are no 0 length items
-    asc_list <- asc_list[lapply(asc_list, length) > 0]
+    asc_list <- asc_list[lengths(asc_list) > 0]
+
     # Only keep the names we want
     ret <- asc_list[grep(
         paste(ds, collapse = "|"),
