@@ -38,7 +38,8 @@ that it can be piped into other functions.
 \url{https://data.cms.gov/provider-data/topics/hospitals/}
 
 Other Hospital Data: 
-\code{\link{current_asc_data}()}
+\code{\link{current_asc_data}()},
+\code{\link{current_asc_oas_cahps_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH

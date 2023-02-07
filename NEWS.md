@@ -7,6 +7,7 @@
 1. Fix #12 - Add function `dl_hosp_data_dict()`
 2. Fix #10 - Add function `current_hosp_data()`
 3. Fix #22 - Add function `current_asc_data()`
+4. Fix #28 - Add function `current_asc_oas_cahps_data()`
 
 ## Minor Fixes and Improvements
 None
