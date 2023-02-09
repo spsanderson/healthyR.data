@@ -39,7 +39,8 @@ that it can be piped into other functions.
 
 Other Hospital Data: 
 \code{\link{current_asc_data}()},
-\code{\link{current_asc_oas_cahps_data}()}
+\code{\link{current_asc_oas_cahps_data}()},
+\code{\link{current_comp_death_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
