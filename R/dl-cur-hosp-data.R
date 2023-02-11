@@ -81,7 +81,6 @@ current_hosp_data <- function() {
             # read in the csv file and use check.names = FALSE because some of
             # the names are very long
             utils::read.csv(check.names = FALSE) |>
-            #head() |>
             dplyr::as_tibble() |>
             # clean the field names
             janitor::clean_names()
