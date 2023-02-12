@@ -41,27 +41,38 @@ current_hosp_data <- function() {
 
     # URL for file
     url <- "https://data.cms.gov/provider-data/sites/default/files/archive/Hospitals/current/hospitals_current_data.zip"
-    f_name <- basename(url)
 
-    # Create a temporary file to store the zip file
-    tmp <- tempfile()
+    # Create a temporary directory to process the zip file
     tmp_dir <- tempdir()
+    download_location <- file.path(tmp_dir, "download.zip")
+    extract_location <- file.path(tmp_dir, "extract")
 
     # Download the zip file to the temporary location
     utils::download.file(
         url = url,
-        destfile = tmp
+        destfile = download_location
     )
 
     # Unzip the file
-    utils::unzip(tmp, exdir = tmp_dir)
+    utils::unzip(tmp, exdir = extract_location)
 
     # Read the csv files into a list
     csv_file_list <- list.files(
-        path = tmp_dir,
+        path = extract_location,
         pattern = "\\.csv$",
         full.names = TRUE
     )
+
+    # make named list
+    csv_names <-
+        stats::setNames(
+            object = csv_file_list,
+            nm =
+                csv_file_list |>
+                basename() |>
+                gsub(pattern = "\\.csv$", replacement = "") |>
+                janitor::make_clean_names()
+        )
 
     # Process CSV Files
     parse_csv_file <- function(file) {
@@ -70,40 +81,19 @@ current_hosp_data <- function() {
             # read in the csv file and use check.names = FALSE because some of
             # the names are very long
             utils::read.csv(check.names = FALSE) |>
+            dplyr::as_tibble() |>
             # clean the field names
             janitor::clean_names()
-        }
+    }
 
-    csv_file_tbl <- lapply(csv_file_list, parse_csv_file)
+    list_of_tables <- lapply(csv_names, parse_csv_file)
 
-    # Get File Names
-    # Get the tmp_dir in normal form C:/path/to/file
-    path_remove <- paste0(normalizePath(tmp_dir, "/"),"/")
+    unlink(tmp_dir, recursive = TRUE)
 
-    # Get csv names function
-    get_csv_names <- function(file) {
-        # Process the path to normal form
-        normalizePath(file, "/") |>
-            # remove the tmp_dir from the full file string
-            gsub(pattern = path_remove, replacement = "") |>
-            # change all - to _
-            gsub(pattern = "-", replacement = "_")
-        }
-    # Get the names
-    file_names <- lapply(csv_file_list, get_csv_names)
-
-    # apply the names
-    names(csv_file_tbl) <- file_names
-
-    # Make the result a tibble for each file.
-    csv_file_tbl <- lapply(csv_file_tbl, dplyr::as_tibble)
-
-    unlink(tmp, recursive = TRUE)
-
-    # Return the tibbles
+    # Return the tibbles)
     # Add and attribute and a class type to the object
-    attr(csv_file_tbl, ".list_type") <- "current_hosp_data"
-    class(csv_file_tbl) <- c("current_hosp_data", class(csv_file_tbl))
+    attr(list_of_tables, ".list_type") <- "current_hosp_data"
+    class(list_of_tables) <- c("current_hosp_data", class(csv_file_tbl))
 
-    return(csv_file_tbl)
+    list_of_tables
 }
