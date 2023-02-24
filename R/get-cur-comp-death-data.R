@@ -57,12 +57,12 @@ current_comp_death_data <- function(.data,
 
     # Manipulations
     # Get the exact files necessary to the ASC
-    file_names_vec <- c("Complications_and_Deaths_Hospital.csv",
-                        "Complications_and_Deaths_National.csv",
-                        "Complications_and_Deaths_State.csv")
+    file_names_vec <- c("complications_and_deaths_hospital",
+                        "complications_and_deaths_national",
+                        "complications_and_deaths_state")
 
     asc_list <- l[names(l) %in% file_names_vec]
-    names(asc_list)[1] <-  "Complications_and_Deaths_Facility.csv"
+    names(asc_list)[1] <-  "complications_and_deaths_facility"
 
     # Make sure there are no 0 length items
     asc_list <- asc_list[lengths(asc_list) > 0]

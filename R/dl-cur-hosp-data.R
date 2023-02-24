@@ -54,7 +54,7 @@ current_hosp_data <- function() {
     )
 
     # Unzip the file
-    utils::unzip(tmp, exdir = extract_location)
+    utils::unzip(download_location, exdir = extract_location)
 
     # Read the csv files into a list
     csv_file_list <- list.files(
@@ -93,7 +93,7 @@ current_hosp_data <- function() {
     # Return the tibbles)
     # Add and attribute and a class type to the object
     attr(list_of_tables, ".list_type") <- "current_hosp_data"
-    class(list_of_tables) <- c("current_hosp_data", class(csv_file_tbl))
+    class(list_of_tables) <- c("current_hosp_data", class(list_of_tables))
 
     list_of_tables
 }

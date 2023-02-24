@@ -57,7 +57,7 @@ current_asc_data <- function(.data,
 
     # Manipulations
     # Get the exact files necessary to the ASC
-    file_names_vec <- c("ASC_Facility.csv","ASC_National.csv","ASC_State.csv")
+    file_names_vec <- c("asc_facility","asc_national","asc_state")
     asc_list <- l[names(l) %in% file_names_vec]
 
     # Make sure there are no 0 length items
