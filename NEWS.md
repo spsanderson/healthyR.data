@@ -10,6 +10,8 @@
 4. Fix #28 - Add function `current_asc_oas_cahps_data()`
 5. Fix #31 - Add function `current_comp_death_data()`
 6. Fix #33 - Confirm logic in `current_hosp_data()` (@rjake)
+7. Fix #38 - Add function `current_hai_data()`
+8, Fix #39 - Add function `current_hcahps_data()`
 
 ## Minor Fixes and Improvements
 None
