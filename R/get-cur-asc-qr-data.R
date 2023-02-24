@@ -27,9 +27,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(dplyr)
-#'
-#' current_hosp_data() %>%
+#' current_hosp_data() |>
 #'   current_asc_oas_cahps_data(.data_sets = c("State","National"))
 #' }
 #'

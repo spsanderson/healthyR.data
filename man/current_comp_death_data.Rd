@@ -10,8 +10,8 @@ current_comp_death_data(.data, .data_sets = c("Facility", "State", "National"))
 \item{.data}{The data that results from the \code{current_hosp_data()} function.}
 
 \item{.data_sets}{The default is: c("Facility","State","National"), which
-will bring back all of the data sets that are in the Ambulatory Surgery Center
-OAS CAHPS data sets. You can choose from the following:
+will bring back all of the data sets that are in the Complications and death
+data sets. You can choose from the following:
 \itemize{
 \item Facility
 \item National
@@ -19,7 +19,7 @@ OAS CAHPS data sets. You can choose from the following:
 }
 
 You can also pass things like c("state","Nation") as behind the scenes only
-the Complicaitons and Death data sets are available to the function to choose
+the Complications and Death data sets are available to the function to choose
 from and \code{grep} is used to find matches with \code{ignore.case = TRUE} set.}
 }
 \value{
@@ -36,9 +36,7 @@ of those data sets you would like,
 }
 \examples{
 \dontrun{
-library(dplyr)
-
-current_hosp_data() \%>\%
+current_hosp_data() |>
   current_comp_death_data(.data_sets = c("State","National"))
 }
 
