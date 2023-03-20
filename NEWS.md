@@ -13,6 +13,7 @@
 7. Fix #38 - Add function `current_hai_data()`
 8, Fix #39 - Add function `current_hcahps_data()`
 9. Fix #42 - Add function `current_hvbp_data()`
+10. Fix #45 - Add function `current_ipfqr_data()`
 
 ## Minor Fixes and Improvements
 None
