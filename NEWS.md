@@ -15,6 +15,7 @@
 9. Fix #42 - Add function `current_hvbp_data()`
 10. Fix #45 - Add function `current_ipfqr_data()`
 11. Fix #47 - Add function `current_maternal_data()`
+12. Fix #49 - Add function `current_medicare_hospital_spending_data()`
 
 ## Minor Fixes and Improvements
 None
