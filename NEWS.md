@@ -14,6 +14,7 @@
 8, Fix #39 - Add function `current_hcahps_data()`
 9. Fix #42 - Add function `current_hvbp_data()`
 10. Fix #45 - Add function `current_ipfqr_data()`
+11. Fix #47 - Add function `current_maternal_data()`
 
 ## Minor Fixes and Improvements
 None
