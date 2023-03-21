@@ -51,7 +51,8 @@ Other Hospital Data:
 \code{\link{current_hai_data}()},
 \code{\link{current_hcahps_data}()},
 \code{\link{current_hosp_data}()},
-\code{\link{current_hvbp_data}()}
+\code{\link{current_hvbp_data}()},
+\code{\link{current_maternal_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
