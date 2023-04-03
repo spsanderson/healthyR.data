@@ -17,6 +17,7 @@
 11. Fix #47 - Add function `current_maternal_data()`
 12. Fix #49 - Add function `current_medicare_hospital_spending_data()`
 13. Fix #51 - Add function `current_opqr_data()`
+14. Fix #52 - Add function `current_imaging_efficiency_data()`
 
 ## Minor Fixes and Improvements
 None
