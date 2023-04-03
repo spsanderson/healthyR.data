@@ -53,7 +53,8 @@ Other Hospital Data:
 \code{\link{current_hvbp_data}()},
 \code{\link{current_ipfqr_data}()},
 \code{\link{current_maternal_data}()},
-\code{\link{current_medicare_hospital_spending_data}()}
+\code{\link{current_medicare_hospital_spending_data}()},
+\code{\link{current_oqr_oas_cahps_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
