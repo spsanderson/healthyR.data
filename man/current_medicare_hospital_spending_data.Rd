@@ -56,6 +56,7 @@ Other Hospital Data:
 \code{\link{current_hcahps_data}()},
 \code{\link{current_hosp_data}()},
 \code{\link{current_hvbp_data}()},
+\code{\link{current_imaging_efficiency_data}()},
 \code{\link{current_ipfqr_data}()},
 \code{\link{current_maternal_data}()},
 \code{\link{current_oqr_oas_cahps_data}()}
