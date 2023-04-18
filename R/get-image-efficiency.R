@@ -28,19 +28,19 @@
 #' @examples
 #' \dontrun{
 #' current_hosp_data() |>
-#'   current_maternal_data(.data_sets = c("State","National"))
+#'   current_outpatient_imaging_efficiency_data(.data_sets = c("State","National"))
 #' }
 #'
 #' @return
 #' Gets the current Imaging Efficiency data from the current hospital data file.
 #'
-#' @name current_imaging_efficiency_data
+#' @name current_outpatient_imaging_efficiency_data
 NULL
 
 #' @export
-#' @rdname current_imaging_efficiency_data
+#' @rdname current_outpatient_imaging_efficiency_data
 
-current_imaging_efficiency_data <- function(.data,
+current_outpatient_imaging_efficiency_data <- function(.data,
                                        .data_sets = c("Facility","State","National")) {
 
     # Variables
