@@ -28,7 +28,7 @@
 #' @examples
 #' \dontrun{
 #' current_hosp_data() |>
-#'   current_maternal_data(.data_sets = c("State","National"))
+#'   current_unplanned_hospital_visits_data(.data_sets = c("State","National"))
 #' }
 #'
 #' @return
