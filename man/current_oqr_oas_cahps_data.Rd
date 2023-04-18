@@ -58,7 +58,8 @@ Other Hospital Data:
 \code{\link{current_imaging_efficiency_data}()},
 \code{\link{current_ipfqr_data}()},
 \code{\link{current_maternal_data}()},
-\code{\link{current_medicare_hospital_spending_data}()}
+\code{\link{current_medicare_hospital_spending_data}()},
+\code{\link{current_unplanned_hospital_visits_data}}
 }
 \author{
 Steven P. Sanderson II, MPH
