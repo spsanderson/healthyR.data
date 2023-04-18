@@ -59,6 +59,7 @@ Other Hospital Data:
 \code{\link{current_outpatient_imaging_efficiency_data}()},
 \code{\link{current_pch_hai_hospital_data}()},
 \code{\link{current_pch_hcahps_data}()},
+\code{\link{current_pch_oncology_measures_hospital_data}()},
 \code{\link{current_unplanned_hospital_visits_data}}
 }
 \author{
