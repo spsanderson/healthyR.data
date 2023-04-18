@@ -20,6 +20,7 @@
 14. Fix #52 - Add function `current_imaging_efficiency_data()`
 15. Fix #60 - Add function `current_unplanned_hospital_visits_data()`
 16. Fix #53 - Add function `current_payments_data()`
+17. Fix #55 - Add function `current_pch_hcahps_data()`
 
 ## Minor Fixes and Improvements
 None
