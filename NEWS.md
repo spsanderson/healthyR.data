@@ -23,6 +23,7 @@
 17. Fix #55 - Add function `current_pch_hcahps_data()`
 18. Fix #56 - Add function `current_pch_hai_hospital_data()`
 19. Fix #57 - Add function `current_pch_oncology_measures_hospital_data()`
+20. Fix #58 - Add function `current_pch_outcomes_data()`
 
 ## Minor Fixes and Improvements
 None
