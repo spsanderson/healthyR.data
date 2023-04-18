@@ -57,6 +57,7 @@ Other Hospital Data:
 \code{\link{current_medicare_hospital_spending_data}()},
 \code{\link{current_oqr_oas_cahps_data}()},
 \code{\link{current_outpatient_imaging_efficiency_data}()},
+\code{\link{current_pch_hai_hospital_data}()},
 \code{\link{current_pch_hcahps_data}()},
 \code{\link{current_unplanned_hospital_visits_data}}
 }
