@@ -19,6 +19,7 @@
 13. Fix #51 - Add function `current_opqr_data()`
 14. Fix #52 - Add function `current_imaging_efficiency_data()`
 15. Fix #60 - Add function `current_unplanned_hospital_visits_data()`
+16. Fix #53 - Add function `current_payments_data()`
 
 ## Minor Fixes and Improvements
 None

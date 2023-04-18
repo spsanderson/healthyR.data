@@ -60,6 +60,7 @@ Other Hospital Data:
 \code{\link{current_ipfqr_data}()},
 \code{\link{current_maternal_data}()},
 \code{\link{current_oqr_oas_cahps_data}()},
+\code{\link{current_payments_data}()},
 \code{\link{current_unplanned_hospital_visits_data}}
 }
 \author{
