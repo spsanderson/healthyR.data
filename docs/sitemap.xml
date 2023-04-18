@@ -58,7 +58,25 @@
     <loc>https://www.spsanderson.com/healthyR.data/reference/current_oqr_oas_cahps_data.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_outpatient_imaging_efficiency_data.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/healthyR.data/reference/current_payments_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hai_hospital_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hcahps_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_oncology_measures_hospital_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_outcomes_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/current_timely_and_effective_care_data.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/healthyR.data/reference/current_unplanned_hospital_visits_data.html</loc>
