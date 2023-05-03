@@ -18,6 +18,13 @@
 12. Fix #49 - Add function `current_medicare_hospital_spending_data()`
 13. Fix #51 - Add function `current_opqr_data()`
 14. Fix #52 - Add function `current_imaging_efficiency_data()`
+15. Fix #60 - Add function `current_unplanned_hospital_visits_data()`
+16. Fix #53 - Add function `current_payments_data()`
+17. Fix #55 - Add function `current_pch_hcahps_data()`
+18. Fix #56 - Add function `current_pch_hai_hospital_data()`
+19. Fix #57 - Add function `current_pch_oncology_measures_hospital_data()`
+20. Fix #58 - Add function `current_pch_outcomes_data()`
+21. Fix #59 - Add function `current_timely_and_effective_care_data()`
 
 ## Minor Fixes and Improvements
 None

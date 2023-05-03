@@ -1,4 +1,4 @@
-#' Get Current Imaging Efficiency Data.
+#' Get Current PCH HCAHPS Data.
 #'
 #' @family Hospital Data
 #'
@@ -6,42 +6,42 @@
 #'
 #' @seealso \url{https://data.cms.gov/provider-data/topics/hospitals/}
 #'
-#' @description Get the current Imaging Efficiency data.
+#' @description Get the current PCH HCAHPS data.
 #'
-#' @details This function will obtain the current Imaging Efficiency data
+#' @details This function will obtain the current PCH HCAHPS data
 #' from the output of the [healthyR.data::current_hosp_data()] function, that is
 #' the required input for the `.data` parameter. You can pass in a list of which
 #' of those data sets you would like,
 #'
 #' @param .data The data that results from the `current_hosp_data()` function.
-#' @param .data_sets The default is: c("Claim","Facility","State","National"), which will
-#' bring back all of the data in the Imaging Efficiency data sets that
+#' @param .data_sets The default is: c(Facility","State","National"), which will
+#' bring back all of the data in the PCH HCAHPS data sets that
 #' are in the file. You can choose from the following:
 #' *  Facility
 #' *  National
 #' *  State
 #'
 #' You can also pass things like c("state","Nation") as behind the scenes only
-#' the Imaging Efficiency data sets are available to the function to choose
+#' the PCH HCAHPS data sets are available to the function to choose
 #' from and `grep` is used to find matches with `ignore.case = TRUE` set.
 #'
 #' @examples
 #' \dontrun{
 #' current_hosp_data() |>
-#'   current_maternal_data(.data_sets = c("State","National"))
+#'   current_pch_hcahps_data(.data_sets = c("State","National"))
 #' }
 #'
 #' @return
-#' Gets the current Imaging Efficiency data from the current hospital data file.
+#' Gets the current PCH HCAHPS data from the current hospital data file.
 #'
-#' @name current_imaging_efficiency_data
+#' @name current_pch_hcahps_data
 NULL
 
 #' @export
-#' @rdname current_imaging_efficiency_data
+#' @rdname current_pch_hcahps_data
 
-current_imaging_efficiency_data <- function(.data,
-                                       .data_sets = c("Facility","State","National")) {
+current_pch_hcahps_data <- function(.data,
+                                    .data_sets = c("Facility","State","National")) {
 
     # Variables
     ds <- .data_sets
@@ -57,12 +57,12 @@ current_imaging_efficiency_data <- function(.data,
 
     # Manipulations
     # Get the exact files necessary to the ASC
-    file_names_vec <- c("outpatient_imaging_efficiency_hospital",
-                        "outpatient_imaging_efficiency_national",
-                        "outpatient_imaging_efficiency_state" )
+    file_names_vec <- c("pch_hcahps_hospital",
+                        "pch_hcahps_national",
+                        "pch_hcahps_state")
 
     asc_list <- l[names(l) %in% file_names_vec]
-    names(asc_list)[1] <-  "outpatient_imaging_efficiency_facility"
+    names(asc_list)[1] <-  "pch_hcahps_facility"
 
     # Make sure there are no 0 length items
     asc_list <- asc_list[lengths(asc_list) > 0]
@@ -74,9 +74,9 @@ current_imaging_efficiency_data <- function(.data,
         ignore.case = TRUE
     )]
 
-    # Return\
-    attr(ret, ".list_type") <- "current_imaging_efficiency_list"
-    class(ret) <- c("current_imaging_efficiency_list", class(ret))
+    # Return
+    attr(ret, ".list_type") <- "pch_hcahps_list"
+    class(ret) <- c("pch_hcahps_list", class(ret))
 
     return(ret)
 
