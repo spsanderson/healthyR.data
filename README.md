@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# healthyR.data <img src="man/figures/test4.png" width="147" height="170" align="right" />
+# healthyR.data <img src="man/figures/logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 
@@ -83,5 +83,5 @@ df %>%
 #>  8 I          Chest Pain                                    2766
 #>  9 I          GI Hemorrhage                                 2404
 #> 10 I          MI                                            2253
-#> # … with 20 more rows
+#> # ℹ 20 more rows
 ```

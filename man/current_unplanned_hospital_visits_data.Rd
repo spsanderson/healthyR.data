@@ -66,7 +66,8 @@ Other Hospital Data:
 \code{\link{current_pch_hcahps_data}()},
 \code{\link{current_pch_oncology_measures_hospital_data}()},
 \code{\link{current_pch_outcomes_data}()},
-\code{\link{current_timely_and_effective_care_data}()}
+\code{\link{current_timely_and_effective_care_data}()},
+\code{\link{current_va_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
