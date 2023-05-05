@@ -25,6 +25,7 @@
 19. Fix #57 - Add function `current_pch_oncology_measures_hospital_data()`
 20. Fix #58 - Add function `current_pch_outcomes_data()`
 21. Fix #59 - Add function `current_timely_and_effective_care_data()`
+22. Fix $65 - Add function `current_va_data()`
 
 ## Minor Fixes and Improvements
 None
