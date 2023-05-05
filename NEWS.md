@@ -1,4 +1,4 @@
-# healthyR.data (development version)
+# healthyR.data 1.0.3
 
 ## Breaking Changes
 1. Require R version 3.4.0 in keeping with tidyverse practices.
