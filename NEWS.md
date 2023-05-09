@@ -1,5 +1,5 @@
 # healthyR.data (development version)
-
+1. Fix #72 - Fix bug in directory file paths for `current_hosp_data()`
 # healthyR.data 1.0.3
 
 ## Breaking Changes
