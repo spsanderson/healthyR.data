@@ -51,7 +51,7 @@ current_hosp_data <- function(path = tempdir(), ...) {
     download_location <- file.path(path, "download.zip")
     extract_location <- file.path(path, "extract")
 
-    dir.create(extract_location, showWarnings = TRUE)
+    dir.create(extract_location, showWarnings = FALSE)
 
     # Download the zip file to the specified location
     utils::download.file(
