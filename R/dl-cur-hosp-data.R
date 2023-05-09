@@ -26,8 +26,6 @@
 #' @param path The location to download and unzip the files. By default this
 #' will go to a temporary directory
 #'
-#' @inheritDotParams utils::unzip -zipfile -exdir
-#'
 #' @examples
 #' \dontrun{
 #'   current_hosp_data()
@@ -42,7 +40,7 @@ NULL
 #' @export
 #' @rdname current_hosp_data
 
-current_hosp_data <- function(path = tempdir(), ...) {
+current_hosp_data <- function(path = utils::choose.dir()) {
 
     # URL for file
     url <- "https://data.cms.gov/provider-data/sites/default/files/archive/Hospitals/current/hospitals_current_data.zip"
@@ -60,7 +58,7 @@ current_hosp_data <- function(path = tempdir(), ...) {
     )
 
     # Unzip the file
-    utils::unzip(download_location, exdir = extract_location, ...)
+    utils::unzip(download_location, exdir = extract_location)
 
     # Read the csv files into a list
     csv_file_list <- list.files(
