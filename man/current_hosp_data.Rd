@@ -4,7 +4,10 @@
 \alias{current_hosp_data}
 \title{Download Current Hospital Data Files.}
 \usage{
-current_hosp_data()
+current_hosp_data(path = utils::choose.dir())
+}
+\arguments{
+\item{path}{The location to download and unzip the files}
 }
 \value{
 Downloads the current hospital data sets.
