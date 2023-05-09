@@ -4,31 +4,10 @@
 \alias{current_hosp_data}
 \title{Download Current Hospital Data Files.}
 \usage{
-current_hosp_data(path = tempdir(), ...)
+current_hosp_data(path = utils::choose.dir())
 }
 \arguments{
-\item{path}{The location to download and unzip the files. By default this
-will go to a temporary directory}
-
-\item{...}{
-  Arguments passed on to \code{\link[utils:unzip]{utils::unzip}}
-  \describe{
-    \item{\code{files}}{A character vector of recorded filepaths to be extracted:
-    the default is to extract all files.}
-    \item{\code{list}}{If \code{TRUE}, list the files and extract none.  The
-    equivalent of \command{unzip -l}.}
-    \item{\code{overwrite}}{If \code{TRUE}, overwrite existing files (the equivalent
-    of \command{unzip -o}), otherwise ignore such files (the equivalent of
-    \command{unzip -n}).}
-    \item{\code{junkpaths}}{If \code{TRUE}, use only the basename of the stored
-    filepath when extracting.  The equivalent of \command{unzip -j}.}
-    \item{\code{unzip}}{The method to be used.  An alternative is to use
-    \code{getOption("unzip")}, which on a Unix-alike may be set to the
-    path to a \command{unzip} program.}
-    \item{\code{setTimes}}{logical.  For the internal method only, should the
-    file times be set based on the times in the zip file?  (NB: this
-    applies to included files, not to directories.)}
-  }}
+\item{path}{The location to download and unzip the files}
 }
 \value{
 Downloads the current hospital data sets.
