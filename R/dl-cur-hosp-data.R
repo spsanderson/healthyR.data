@@ -37,15 +37,18 @@ NULL
 #' @export
 #' @rdname current_hosp_data
 
-current_hosp_data <- function() {
+current_hosp_data <- function(path = tempdir()) {
 
     # URL for file
     url <- "https://data.cms.gov/provider-data/sites/default/files/archive/Hospitals/current/hospitals_current_data.zip"
 
     # Create a temporary directory to process the zip file
-    tmp_dir <- tempdir()
-    download_location <- file.path(tmp_dir, "download.zip")
-    extract_location <- file.path(tmp_dir, "extract")
+    download_location <- file.path(path, "download.zip")
+    extract_location <- file.path(path, "extract")
+
+    if (!dir.exists(extract_location)) {
+        dir.create(extract_location)
+    }
 
     # Download the zip file to the temporary location
     utils::download.file(
@@ -88,7 +91,9 @@ current_hosp_data <- function() {
 
     list_of_tables <- lapply(csv_names, parse_csv_file)
 
-    unlink(tmp_dir, recursive = TRUE)
+    if (path == tempdir()) {
+        unlink(path, recursive = TRUE)
+    }
 
     # Return the tibbles)
     # Add and attribute and a class type to the object
