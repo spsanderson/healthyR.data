@@ -23,8 +23,7 @@
 #' to access the data later on. It does have a given attributes and a class so
 #' that it can be piped into other functions.
 #'
-#' @param path The location to download and unzip the files. By default this
-#' will go to a temporary directory
+#' @param path The location to download and unzip the files
 #'
 #' @examples
 #' \dontrun{
@@ -91,11 +90,6 @@ current_hosp_data <- function(path = utils::choose.dir()) {
     }
 
     list_of_tables <- lapply(csv_names, parse_csv_file)
-
-    # unlink temporary directory if used
-    if (path == tempdir()) {
-        unlink(path, recursive = TRUE)
-    }
 
     # Return the tibbles
     # Add and attribute and a class type to the object
