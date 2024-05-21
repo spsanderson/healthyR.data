@@ -66,11 +66,14 @@ The columns in the returned tibble are:
 }
 }
 \examples{
-\dontrun{
-# Fetch and process data links from the CMS data URL
-data_links <- get_cms_meta_data()
-print(data_links)
-}
+library(dplyr)
+
+# Fetch and process metadata from the CMS data URL
+get_cms_meta_data(
+  .keyword = "nation",
+  .title = "Market Saturation & Utilization State-County"
+) |>
+  glimpse()
 
 }
 \seealso{
@@ -96,7 +99,8 @@ Other Hospital Data:
 \code{\link{current_pch_outcomes_data}()},
 \code{\link{current_timely_and_effective_care_data}()},
 \code{\link{current_unplanned_hospital_visits_data}},
-\code{\link{current_va_data}()}
+\code{\link{current_va_data}()},
+\code{\link{get_provider_meta_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH

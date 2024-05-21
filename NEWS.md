@@ -5,6 +5,7 @@ None
 
 ## New Function
 1. Fix #77 - Add function `get_cms_meta_data()`
+2. Fix #82 - Add function `get_provider_meta_data()`
 
 ## Minor Fixes and Improvements
 1. Fix #72 - Fix bug in directory file paths for `current_hosp_data()`

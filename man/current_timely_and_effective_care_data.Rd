@@ -67,7 +67,8 @@ Other Hospital Data:
 \code{\link{current_pch_outcomes_data}()},
 \code{\link{current_unplanned_hospital_visits_data}},
 \code{\link{current_va_data}()},
-\code{\link{get_cms_meta_data}()}
+\code{\link{get_cms_meta_data}()},
+\code{\link{get_provider_meta_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH

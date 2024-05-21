@@ -51,11 +51,14 @@
 #' @return A tibble with data links and relevant metadata about the datasets.
 #'
 #' @examples
-#' \dontrun{
-#' # Fetch and process data links from the CMS data URL
-#' data_links <- get_cms_meta_data()
-#' print(data_links)
-#' }
+#' library(dplyr)
+#'
+#' # Fetch and process metadata from the CMS data URL
+#' get_cms_meta_data(
+#'   .keyword = "nation",
+#'   .title = "Market Saturation & Utilization State-County"
+#' ) |>
+#'   glimpse()
 #'
 #' @name get_cms_meta_data
 NULL
@@ -140,7 +143,7 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
 
     # Filters
     if (!is.null(.title)) {
-        data_tbl <- dplyr::filter(data_tbl, stringr::str_detect(title, .title))
+        data_tbl <- data_tbl[grep(.title, data_tbl$title, ignore.case = TRUE),]
     }
 
     if (!is.null(.modified_date)) {
@@ -148,11 +151,16 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
     }
 
     if (!is.null(.keyword)) {
-        data_tbl <- data_tbl[keyword %in% unname(unlist(data_tbl$keyword)),]
+        data_tbl <- data_tbl[grep(
+            pattern = .keyword,
+            x = unname(data_tbl$keyword),
+            ignore.case = TRUE
+        ),]
+        data_tbl <- data_tbl[!is.na(data_tbl$title),]
     }
 
     if (!is.null(.identifier)) {
-        data_tbl <- dplyr::filter(data_tbl, stringr::str_detect(identifier, .identifier))
+        data_tbl <- data_tbl[grep(.identifier, data_tbl$identifier, ignore.case = TRUE),]
     }
 
     if (.data_version == "archive") {
@@ -177,12 +185,20 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
     class(data_tbl) <- c("cms_meta_data", class(data_tbl))
     attr(data_tbl, "url") <- url
     attr(data_tbl, "date_retrieved") <- Sys.Date()
-    attr(data_tbl, "data_version") <- .data_version
-    attr(data_tbl, "media_type") <- .media_type
-    attr(data_tbl, "title") <- .title
-    attr(data_tbl, "modified_date") <- .modified_date
-    attr(data_tbl, "keyword") <- .keyword
-    attr(data_tbl, "identifier") <- .identifier
+    attr(data_tbl, "data_version") <- list(
+        .data_version = .data_version,
+        .media_type = .media_type,
+        .title = .title,
+        .modified_date = .modified_date,
+        .keyword = .keyword,
+        .identifier = .identifier
+    )
+    # attr(data_tbl, "data_version") <- .data_version
+    # attr(data_tbl, "media_type") <- .media_type
+    # attr(data_tbl, "title") <- .title
+    # attr(data_tbl, "modified_date") <- .modified_date
+    # attr(data_tbl, "keyword") <- .keyword
+    # attr(data_tbl, "identifier") <- .identifier
 
     # Final Return
     return(data_tbl)
