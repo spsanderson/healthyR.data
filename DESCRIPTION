@@ -12,8 +12,6 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-URL: https://www.spsanderson.com/healthyR.data/, https://github.com/spsanderson/healthyR.data
 BugReports: https://github.com/spsanderson/healthyR.data/issues
 Depends: 
     R (>= 3.4.0)
@@ -22,4 +20,7 @@ Imports:
     utils,
     janitor,
     dplyr,
-    stats
+    stats,
+    httr2,
+    stringr,
+    tidyr
