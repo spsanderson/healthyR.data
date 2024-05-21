@@ -4,7 +4,32 @@
 \alias{get_cms_meta_data}
 \title{Retrieve Data Links from CMS Data URL}
 \usage{
-get_cms_meta_data(url = "https://data.cms.gov/data.json")
+get_cms_meta_data(
+  url = "https://data.cms.gov/data.json",
+  .title = NULL,
+  .modified_date = NULL,
+  .keyword = NULL,
+  .identifier = NULL,
+  .data_version = "current",
+  .media_type = "all"
+)
+}
+\arguments{
+\item{.title}{This can be a title that is used to search the data.}
+
+\item{.keyword}{This can be a keyword that is used to search the data.}
+
+\item{.identifier}{This can be an identifier that is used to search the data.}
+
+\item{.data_version}{This can be one of three different choices: "current",
+"archive", or "all". The default is "current" and if you make a choice that
+does not exist then it will default to "current".}
+
+\item{.media_type}{This can be one of three different choices: "all", "csv",
+"API", or "other". The default is "all" and if you make a choice that does not
+exist then it will default to "all".}
+
+\item{.modified_data}{This can be a date in the format of "YYYY-MM-DD"}
 }
 \value{
 A tibble with data links and relevant metadata about the datasets.
