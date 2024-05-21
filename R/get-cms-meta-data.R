@@ -10,6 +10,17 @@
 #' This function sends a request to the specified CMS data URL, retrieves the JSON data,
 #' and processes it to create a tibble with relevant information about the datasets.
 #'
+#' @param .title This can be a title that is used to search the data.
+#' @param .modified_data This can be a date in the format of "YYYY-MM-DD"
+#' @param .keyword This can be a keyword that is used to search the data.
+#' @param .identifier This can be an identifier that is used to search the data.
+#' @param .data_version This can be one of three different choices: "current",
+#' "archive", or "all". The default is "current" and if you make a choice that
+#' does not exist then it will default to "current".
+#' @param .media_type This can be one of three different choices: "all", "csv",
+#' "API", or "other". The default is "all" and if you make a choice that does not
+#' exist then it will default to "all".
+#'
 #' @details
 #' The function fetches JSON data from the CMS data URL and extracts relevant fields to
 #' create a tidy tibble. It selects specific columns, handles nested lists by unnesting them,
@@ -51,7 +62,17 @@ NULL
 #' @rdname get_cms_meta_data
 #' @export
 
-get_cms_meta_data <- function(url = "https://data.cms.gov/data.json") {
+get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
+                               .title = NULL,
+                               .modified_date = NULL,
+                               .keyword = NULL,
+                               .identifier = NULL,
+                               .data_version = "current",
+                               .media_type = "all") {
+
+    # Variable to store the modified date
+    modified_date <- as.Date(.modified_date, format = "%Y-%m-%d")
+
     # Helper function to perform the HTTP request and retrieve JSON data
     get_json_data <- function(url) {
         tryCatch({
@@ -73,7 +94,8 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json") {
                 contactPoint, identifier, temporal, references, distribution
             ) |>
             tidyr::unnest(cols = distribution, names_sep = "_") |>
-            tidyr::unnest(cols = c(keyword, contactPoint, references)) |>
+            #tidyr::unnest(cols = c(keyword, contactPoint, references)) |>
+            tidyr::unnest(cols = c(contactPoint, references)) |>
             janitor::clean_names() |>
             dplyr::select(-type, -distribution_type) |>
             dplyr::mutate(media_type = ifelse(is.na(distribution_format),
@@ -116,10 +138,51 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json") {
 
     data_tbl <- process_data(data_sets)
 
+    # Filters
+    if (!is.null(.title)) {
+        data_tbl <- dplyr::filter(data_tbl, stringr::str_detect(title, .title))
+    }
+
+    if (!is.null(.modified_date)) {
+        data_tbl <- dplyr::filter(data_tbl, modified == modified_date)
+    }
+
+    if (!is.null(.keyword)) {
+        data_tbl <- data_tbl[keyword %in% unname(unlist(data_tbl$keyword)),]
+    }
+
+    if (!is.null(.identifier)) {
+        data_tbl <- dplyr::filter(data_tbl, stringr::str_detect(identifier, .identifier))
+    }
+
+    if (.data_version == "archive") {
+        data_tbl <- dplyr::filter(
+            data_tbl,
+            stringr::str_detect(distribution_description, "old")
+        )
+    } else if (.data_version == "all") {
+        data_tbl <- data_tbl
+    } else {
+        data_tbl <- dplyr::filter(
+            data_tbl,
+            stringr::str_detect(distribution_description, "latest")
+        )
+    }
+
+    if (.media_type != "all") {
+        data_tbl <- dplyr::filter(data_tbl, media_type == .media_type)
+    }
+
     # Add metadata to the tibble
     class(data_tbl) <- c("cms_meta_data", class(data_tbl))
     attr(data_tbl, "url") <- url
     attr(data_tbl, "date_retrieved") <- Sys.Date()
+    attr(data_tbl, "data_version") <- .data_version
+    attr(data_tbl, "media_type") <- .media_type
+    attr(data_tbl, "title") <- .title
+    attr(data_tbl, "modified_date") <- .modified_date
+    attr(data_tbl, "keyword") <- .keyword
+    attr(data_tbl, "identifier") <- .identifier
 
     # Final Return
     return(data_tbl)
