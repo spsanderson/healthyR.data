@@ -24,3 +24,4 @@ Imports:
     httr2,
     stringr,
     tidyr
+RoxygenNote: 7.3.1
