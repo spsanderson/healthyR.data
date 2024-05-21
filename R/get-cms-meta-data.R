@@ -51,59 +51,76 @@ NULL
 #' @rdname get_cms_meta_data
 #' @export
 
-get_cms_meta_data <- function() {
-    # Make a request to the specified URL and retrieve the JSON data
-    url <- "https://data.cms.gov/data.json"
-    data_sets <- httr2::request(url) |>
-        httr2::req_perform() |>
-        httr2::resp_body_json(check_type = FALSE, simplifyVector = TRUE)
+get_cms_meta_data <- function(url = "https://data.cms.gov/data.json") {
+    # Helper function to perform the HTTP request and retrieve JSON data
+    get_json_data <- function(url) {
+        tryCatch({
+            httr2::request(url) |>
+                httr2::req_perform() |>
+                httr2::resp_body_json(check_type = FALSE, simplifyVector = TRUE)
+        }, error = function(e) {
+            message("Error retrieving JSON data: ", e)
+            NULL
+        })
+    }
 
-    # Create a tibble from the 'dataset' field of the JSON data
-    data_tbl <- data_sets$dataset |>
-        dplyr::tibble() |>
-        dplyr::select(
-            title, description, landingPage,
-            modified, keyword, description,
-            describedBy, contactPoint, identifier,
-            temporal, references, distribution
-        ) |>
-        tidyr::unnest(cols = distribution, names_sep = "_") |>
-        tidyr::unnest(cols = c(keyword, contactPoint, references)) |>
-        janitor::clean_names() |>
-        dplyr::select(-type, -distribution_type) |>
-        dplyr::mutate(media_type = ifelse(is.na(distribution_format),
-                                          distribution_media_type,
-                                          distribution_format
-        )) |>
-        dplyr::mutate(data_link = ifelse(is.na(distribution_access_url),
-                                         distribution_download_url,
-                                         distribution_access_url
-        )) |>
-        dplyr::mutate(has_email = stringr::str_remove(has_email, "mailto:")) |>
-        tidyr::separate(temporal,
-                        into = c("start", "end"), sep = "/",
-                        remove = TRUE
-        ) |>
-        tidyr::separate(distribution_temporal,
-                        into = c("distribution_start", "distribution_end"), sep = "/",
-                        remove = TRUE
-        ) |>
-        dplyr::mutate(dplyr::across(c(
-            start, end, modified,
-            distribution_modified, distribution_start,
-            distribution_end
-        ), as.Date)) |>
-        dplyr::mutate(distribution_description = ifelse(is.na(distribution_description),
-                                                        "old", distribution_description
-        )) |>
-        dplyr::mutate(distribution_title = stringr::str_remove_all(distribution_title, "[:|-]")) |>
-        dplyr::mutate(distribution_title = stringr::str_remove_all(distribution_title, "[:number:]")) |>
-        dplyr::select(
-            -distribution_format, -distribution_media_type,
-            -distribution_access_url, -distribution_download_url
-        ) |>
-        dplyr::mutate(dplyr::across(dplyr::where(is.character), stringr::str_squish))
+    # Helper function to clean and process the data
+    process_data <- function(data_sets) {
+        data_sets$dataset |>
+            dplyr::tibble() |>
+            dplyr::select(
+                title, description, landingPage, modified, keyword, describedBy,
+                contactPoint, identifier, temporal, references, distribution
+            ) |>
+            tidyr::unnest(cols = distribution, names_sep = "_") |>
+            tidyr::unnest(cols = c(keyword, contactPoint, references)) |>
+            janitor::clean_names() |>
+            dplyr::select(-type, -distribution_type) |>
+            dplyr::mutate(media_type = ifelse(is.na(distribution_format),
+                                              distribution_media_type,
+                                              distribution_format)) |>
+            dplyr::mutate(data_link = ifelse(is.na(distribution_access_url),
+                                             distribution_download_url,
+                                             distribution_access_url)) |>
+            dplyr::mutate(has_email = stringr::str_remove(has_email, "mailto:")) |>
+            tidyr::separate(temporal, into = c("start", "end"), sep = "/", remove = TRUE) |>
+            tidyr::separate(distribution_temporal, into = c("distribution_start", "distribution_end"), sep = "/", remove = TRUE) |>
+            dplyr::mutate(
+                dplyr::across(
+                    c(
+                        start, end, modified, distribution_modified,
+                        distribution_start, distribution_end
+                    ),
+                    as.Date)
+                ) |>
+            dplyr::mutate(distribution_description = ifelse(
+                is.na(distribution_description),
+                "old",
+                distribution_description
+                )
+            ) |>
+            dplyr::mutate(distribution_title = stringr::str_remove_all(distribution_title, "[:|-]")) |>
+            dplyr::mutate(distribution_title = stringr::str_remove_all(distribution_title, "[:number:]")) |>
+            dplyr::select(
+                -distribution_format, -distribution_media_type,
+                -distribution_access_url, -distribution_download_url
+                ) |>
+            dplyr::mutate(dplyr::across(dplyr::where(is.character), stringr::str_squish))
+    }
 
-    # Return the resulting tibble with data links
+    # Main function body
+    data_sets <- get_json_data(url)
+    if (is.null(data_sets)) {
+        return(NULL)
+    }
+
+    data_tbl <- process_data(data_sets)
+
+    # Add metadata to the tibble
+    class(data_tbl) <- c("cms_meta_data", class(data_tbl))
+    attr(data_tbl, "url") <- url
+    attr(data_tbl, "date_retrieved") <- Sys.Date()
+
+    # Final Return
     return(data_tbl)
 }

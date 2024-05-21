@@ -4,7 +4,7 @@
 \alias{get_cms_meta_data}
 \title{Retrieve Data Links from CMS Data URL}
 \usage{
-get_cms_meta_data()
+get_cms_meta_data(url = "https://data.cms.gov/data.json")
 }
 \value{
 A tibble with data links and relevant metadata about the datasets.
