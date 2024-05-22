@@ -184,8 +184,8 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
     # Add metadata to the tibble
     class(data_tbl) <- c("cms_meta_data", class(data_tbl))
     attr(data_tbl, "url") <- url
-    attr(data_tbl, "date_retrieved") <- Sys.Date()
-    attr(data_tbl, "data_version") <- list(
+    attr(data_tbl, "date_retrieved") <- Sys.time()
+    attr(data_tbl, "parameters") <- list(
         .data_version = .data_version,
         .media_type = .media_type,
         .title = .title,
@@ -193,12 +193,6 @@ get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
         .keyword = .keyword,
         .identifier = .identifier
     )
-    # attr(data_tbl, "data_version") <- .data_version
-    # attr(data_tbl, "media_type") <- .media_type
-    # attr(data_tbl, "title") <- .title
-    # attr(data_tbl, "modified_date") <- .modified_date
-    # attr(data_tbl, "keyword") <- .keyword
-    # attr(data_tbl, "identifier") <- .identifier
 
     # Final Return
     return(data_tbl)
