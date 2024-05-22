@@ -163,7 +163,7 @@ get_provider_meta_data <- function(.identifier = NULL, .title = NULL,
     }
 
     # Add metadata to the tibble
-    class(data_tbl) <- c("cms_meta_data", class(data_tbl))
+    class(data_tbl) <- c("provider_meta_data", class(data_tbl))
     attr(data_tbl, "url") <- url_meta_data
     attr(data_tbl, "date_retrieved") <- Sys.time()
     attr(data_tbl, "parameters") <- list(
