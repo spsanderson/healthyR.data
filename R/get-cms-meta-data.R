@@ -1,6 +1,6 @@
 #' Retrieve Data Links from CMS Data URL
 #'
-#' @family Hospital Data
+#' @family CMS Data
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
