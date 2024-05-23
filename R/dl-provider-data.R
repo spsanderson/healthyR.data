@@ -1,6 +1,6 @@
 #' Fetch Provider Data as Tibble or Download CSV
 #'
-#' @family Meta Data
+#' @family Provider Data
 #'
 #' @seealso \code{\link[healthyR.data]{get_provider_meta_data}}
 #'
@@ -10,37 +10,31 @@
 #'
 #' @param .data_link A character string containing the URL to fetch data from.
 #'
-#' @return A tibble containing the fetched data with cleaned names, or downloads
-#' a CSV file to the user-selected directory. If an error occurs, returns `NULL`.
+#' @return A tibble containing the fetched data with cleaned names, or downloads a CSV file to the user-selected directory. If an error occurs, returns `NULL`.
 #'
 #' @details
 #' The function sends a request to the provided URL using `httr2::request` and
 #' `httr2::req_perform`. If the response status is not 200, it stops with an
 #' error message indicating the failure. If the URL ends in .csv, it uses `utils::download.file`
-#' to download the CSV file to a directory chosen by the user. Otherwise, the
-#' response body is parsed as JSON and converted into a tibble using
-#' `dplyr::as_tibble`. The column names are cleaned using `janitor::clean_names`,
-#' and any character columns are stripped of leading and trailing whitespace
-#' using `stringr::str_squish`.
+#' to download the CSV file to a directory chosen by the user. Otherwise, the response body is parsed as JSON and
+#' converted into a tibble using `dplyr::as_tibble`. The column names are cleaned
+#' using `janitor::clean_names`, and any character columns are stripped of leading
+#' and trailing whitespace using `stringr::str_squish`.
 #'
 #' @examples
 #' library(dplyr)
 #'
 #' # Example usage:
-#' data_identifier <- "069d-826b"
-#' data_link <- paste0(
-#'     "https://data.cms.gov/provider-data/api/1/datastore/query/",
-#'     data_identifier,
-#'     "/0"
-#' )
+#' data_url <- "069d-826b"
 #'
-#' df_tbl <- fetch_provider_data(data_link)
+#' df_tbl <- fetch_provider_data(data_url)
 #'
 #' df_tbl |>
 #'  head(1) |>
 #'  glimpse()
 #'
-#' fetch_provider_data("https://www.google.com")
+#' bad_url <- "https://www.google.com"
+#' fetch_provider_data(bad_url)
 #'
 #' @name fetch_provider_data
 NULL
@@ -50,14 +44,45 @@ NULL
 fetch_provider_data <- function(.data_link) {
     data_link <- .data_link
 
-    # Check if the URL is valid and starts with the required prefix
+    # Is valid url? If not then it should be treated as an identifier, this
+    # will output TRUE or FALSE
+    is_valid_url <- function(url) {
+        parsed_url <- httr2::url_parse(url)
+        # Check if the parsed URL has a scheme and a host
+        if (is.null(parsed_url$scheme) || is.null(parsed_url$hostname)) {
+            return(FALSE)
+        } else {
+            return(TRUE)
+        }
+    }
+    url_valid <- is_valid_url(data_link)
+
+    # If the link does not end with .csv AND does not start with
+    # https://data.cms.gov AND is not a valid url then it is should be treated
+    # as an identifier and then construct the API query URL
+    if (
+        (
+            !grepl("\\.csv$", data_link) &
+            !grepl("^https://data.cms.gov", data_link) &
+            !url_valid
+        )
+    ) {
+        data_link <- paste0(
+            "https://data.cms.gov/provider-data/api/1/datastore/query/",
+            data_link,
+            "/0"
+        )
+    }
+
+    # Check if the URL starts with the required prefix and is a valid URL
     if (!is.character(data_link) ||
         length(data_link) != 1 ||
-        !grepl("^https://data.cms.gov/provider-data/api/1/datastore/query/", data_link)
+        !grepl("^https://data.cms.gov/provider-data", data_link) ||
+        !is_valid_url(data_link)
     ) {
         rlang::abort(
             message = "The provided data link is not valid or does not start with
-            'https://data.cms.gov/provider-data/api/1/datastore/query/'. Please first pull an
+            'https://data.cms.gov/provider-data'. Please first pull an
             appropriate data link from the CMS provider data API using the
             get_provider_meta_data() function.",
             use_cli_format = TRUE

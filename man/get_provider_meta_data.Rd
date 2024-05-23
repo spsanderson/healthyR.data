@@ -73,5 +73,8 @@ get_provider_meta_data(.identifier = "3614-1eef") |>
 }
 \seealso{
 \url{https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items}
+
+Other Provider Data: 
+\code{\link{fetch_provider_data}()}
 }
 \concept{Provider Data}
