@@ -65,13 +65,12 @@ NULL
 #' @rdname get_cms_meta_data
 #' @export
 
-get_cms_meta_data <- function(url = "https://data.cms.gov/data.json",
-                               .title = NULL,
-                               .modified_date = NULL,
-                               .keyword = NULL,
-                               .identifier = NULL,
-                               .data_version = "current",
+get_cms_meta_data <- function(.title = NULL, .modified_date = NULL, .keyword = NULL,
+                              .identifier = NULL, .data_version = "current",
                                .media_type = "all") {
+
+    # URL to fetch the CMS data
+    url = "https://data.cms.gov/data.json"
 
     # Variable to store the modified date
     modified_date <- as.Date(.modified_date, format = "%Y-%m-%d")
