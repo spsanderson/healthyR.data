@@ -38,8 +38,6 @@
 #'  head(1) |>
 #'  glimpse()
 #'
-#' fetch_cms_data("https://www.google.com")
-#'
 #' @name fetch_cms_data
 NULL
 #'

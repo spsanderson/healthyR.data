@@ -37,9 +37,6 @@ df_tbl |>
  head(1) |>
  glimpse()
 
-bad_url <- "https://www.google.com"
-fetch_provider_data(bad_url)
-
 }
 \seealso{
 \code{\link[healthyR.data]{get_provider_meta_data}}

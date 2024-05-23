@@ -40,8 +40,6 @@ df_tbl |>
  head(1) |>
  glimpse()
 
-fetch_cms_data("https://www.google.com")
-
 }
 \seealso{
 \code{\link[healthyR.data]{get_cms_meta_data}}

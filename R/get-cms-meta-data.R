@@ -11,7 +11,7 @@
 #' and processes it to create a tibble with relevant information about the datasets.
 #'
 #' @param .title This can be a title that is used to search the data.
-#' @param .modified_data This can be a date in the format of "YYYY-MM-DD"
+#' @param .modified_date This can be a date in the format of "YYYY-MM-DD"
 #' @param .keyword This can be a keyword that is used to search the data.
 #' @param .identifier This can be an identifier that is used to search the data.
 #' @param .data_version This can be one of three different choices: "current",
