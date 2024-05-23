@@ -44,7 +44,4 @@ df_tbl |>
 \seealso{
 \code{\link[healthyR.data]{get_cms_meta_data}}
 }
-\author{
-Steven P. Sanderson II, MPH
-}
 \concept{CMS Data}

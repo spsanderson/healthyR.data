@@ -41,17 +41,7 @@ NULL
 fetch_provider_data <- function(.data_link) {
     data_link <- .data_link
 
-    # Is valid url? If not then it should be treated as an identifier, this
-    # will output TRUE or FALSE
-    is_valid_url <- function(url) {
-        parsed_url <- httr2::url_parse(url)
-        # Check if the parsed URL has a scheme and a host
-        if (is.null(parsed_url$scheme) || is.null(parsed_url$hostname)) {
-            return(FALSE)
-        } else {
-            return(TRUE)
-        }
-    }
+    # Check if the URL is valid
     url_valid <- is_valid_url(data_link)
 
     # If the link does not end with .csv AND does not start with

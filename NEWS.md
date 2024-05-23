@@ -10,6 +10,7 @@ None
 1. Fix #101 - Fixed `fetch_cms_data()` to handle all types of data presented, not 
 just API data. Now appropriately handles both API and non-API data such as, .csv,
 vnd.ms-excel and .zip files.
+2. Fix #103 - Added `is_valid_url()` call to `fetch_` functions.
 
 # healthyR.data 1.1.0
 
