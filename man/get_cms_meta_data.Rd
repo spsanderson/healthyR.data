@@ -77,32 +77,8 @@ get_cms_meta_data(
 }
 \seealso{
 \url{https://data.cms.gov/data.json}
-
-Other Hospital Data: 
-\code{\link{current_asc_data}()},
-\code{\link{current_asc_oas_cahps_data}()},
-\code{\link{current_comp_death_data}()},
-\code{\link{current_hai_data}()},
-\code{\link{current_hcahps_data}()},
-\code{\link{current_hosp_data}()},
-\code{\link{current_hvbp_data}()},
-\code{\link{current_ipfqr_data}()},
-\code{\link{current_maternal_data}()},
-\code{\link{current_medicare_hospital_spending_data}()},
-\code{\link{current_oqr_oas_cahps_data}()},
-\code{\link{current_outpatient_imaging_efficiency_data}()},
-\code{\link{current_payments_data}()},
-\code{\link{current_pch_hai_hospital_data}()},
-\code{\link{current_pch_hcahps_data}()},
-\code{\link{current_pch_oncology_measures_hospital_data}()},
-\code{\link{current_pch_outcomes_data}()},
-\code{\link{current_timely_and_effective_care_data}()},
-\code{\link{current_unplanned_hospital_visits_data}},
-\code{\link{current_va_data}()},
-\code{\link{fetch_cms_data}()},
-\code{\link{get_provider_meta_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Hospital Data}
+\concept{CMS Data}

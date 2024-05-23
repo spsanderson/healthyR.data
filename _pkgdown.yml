@@ -23,6 +23,15 @@ reference:
      desc: Hospital Data Files
      contents:
      -  has_concept("Hospital Data")
+  -  title: Meta Data
+     desc: Meta Data
+     contents:
+     -  has_concept("Meta Data")
+  -  title: Meta Data Downloads
+     desc: Meta Data Downloads
+     contents:
+     -  has_concept("Provider Data")
+     -  has_concept("CMS Data")
   -  title: Built In Data
      contents:
      -  "healthyR_data"
