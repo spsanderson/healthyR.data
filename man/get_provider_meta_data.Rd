@@ -2,7 +2,7 @@
 % Please edit documentation in R/get-provider-meta-data.R
 \name{get_provider_meta_data}
 \alias{get_provider_meta_data}
-\title{Retrieve Metadata from CMS Data URL}
+\title{Retrieve Provider Metadata from CMS}
 \usage{
 get_provider_meta_data(
   .identifier = NULL,
@@ -74,7 +74,7 @@ get_provider_meta_data(.identifier = "3614-1eef") |>
 \seealso{
 \url{https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items}
 
-Other Provider Data: 
-\code{\link{fetch_provider_data}()}
+Other Meta Data: 
+\code{\link{get_cms_meta_data}()}
 }
-\concept{Provider Data}
+\concept{Meta Data}

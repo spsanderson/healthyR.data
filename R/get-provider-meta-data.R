@@ -1,6 +1,6 @@
-#' Retrieve Metadata from CMS Data URL
+#' Retrieve Provider Metadata from CMS
 #'
-#' @family Provider Data
+#' @family Meta Data
 #'
 #' @seealso \url{https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items}
 #'

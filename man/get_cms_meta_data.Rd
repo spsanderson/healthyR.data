@@ -2,7 +2,7 @@
 % Please edit documentation in R/get-cms-meta-data.R
 \name{get_cms_meta_data}
 \alias{get_cms_meta_data}
-\title{Retrieve Data Links from CMS Data URL}
+\title{Retrieve CMS Metadata Links from CMS}
 \usage{
 get_cms_meta_data(
   .title = NULL,
@@ -77,8 +77,11 @@ get_cms_meta_data(
 }
 \seealso{
 \url{https://data.cms.gov/data.json}
+
+Other Meta Data: 
+\code{\link{get_provider_meta_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{CMS Data}
+\concept{Meta Data}

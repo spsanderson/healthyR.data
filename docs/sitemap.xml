@@ -85,6 +85,12 @@
     <loc>https://www.spsanderson.com/healthyR.data/reference/current_va_data.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/fetch_cms_data.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.data/reference/fetch_provider_data.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/healthyR.data/reference/get_cms_meta_data.html</loc>
   </url>
   <url>
