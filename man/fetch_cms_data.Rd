@@ -45,9 +45,6 @@ fetch_cms_data("https://www.google.com")
 }
 \seealso{
 \code{\link[healthyR.data]{get_cms_meta_data}}
-
-Other Meta Data: 
-\code{\link{fetch_provider_data}()}
 }
 \author{
 Steven P. Sanderson II, MPH
