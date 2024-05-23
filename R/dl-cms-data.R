@@ -1,6 +1,6 @@
 #' Fetch Data as Tibble
 #'
-#' @family Meta Data
+#' @family CMS Data
 #'
 #' @seealso \code{\link[healthyR.data]{get_cms_meta_data}}
 #'

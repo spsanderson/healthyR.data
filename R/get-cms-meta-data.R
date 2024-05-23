@@ -1,6 +1,6 @@
-#' Retrieve Data Links from CMS Data URL
+#' Retrieve CMS Metadata Links from CMS
 #'
-#' @family CMS Data
+#' @family Meta Data
 #'
 #' @author Steven P. Sanderson II, MPH
 #'

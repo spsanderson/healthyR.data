@@ -43,8 +43,5 @@ fetch_provider_data(bad_url)
 }
 \seealso{
 \code{\link[healthyR.data]{get_provider_meta_data}}
-
-Other Provider Data: 
-\code{\link{get_provider_meta_data}()}
 }
 \concept{Provider Data}
