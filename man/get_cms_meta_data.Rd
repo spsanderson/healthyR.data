@@ -5,7 +5,6 @@
 \title{Retrieve Data Links from CMS Data URL}
 \usage{
 get_cms_meta_data(
-  url = "https://data.cms.gov/data.json",
   .title = NULL,
   .modified_date = NULL,
   .keyword = NULL,
@@ -100,6 +99,7 @@ Other Hospital Data:
 \code{\link{current_timely_and_effective_care_data}()},
 \code{\link{current_unplanned_hospital_visits_data}},
 \code{\link{current_va_data}()},
+\code{\link{fetch_cms_data}()},
 \code{\link{get_provider_meta_data}()}
 }
 \author{
