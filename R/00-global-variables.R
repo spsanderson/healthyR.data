@@ -5,6 +5,7 @@ globalVariables(
         "type","distribution_type","distribution_format","distribution_media_type",
         "distribution_access_url","distribution_download_url","has_email",
         "distribution_temporal","start","end","distribution_start","distribution_end",
-        "distribution_description","distribution_title","distribution_modified"
+        "distribution_description","distribution_title","distribution_modified",
+        "media_type","@type","bureauCode","issued","programCode","publisher","released"
     )
 )

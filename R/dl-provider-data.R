@@ -33,9 +33,6 @@
 #'  head(1) |>
 #'  glimpse()
 #'
-#' bad_url <- "https://www.google.com"
-#' fetch_provider_data(bad_url)
-#'
 #' @name fetch_provider_data
 NULL
 #'
