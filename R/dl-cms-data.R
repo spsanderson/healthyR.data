@@ -4,8 +4,6 @@
 #'
 #' @seealso \code{\link[healthyR.data]{get_cms_meta_data}}
 #'
-#' @author Steven P. Sanderson II, MPH
-#'
 #' @description
 #' This function retrieves data from the provided link and returns it as a tibble
 #' with cleaned names. This function is intended to be used with the CMS data API
@@ -46,31 +44,54 @@ NULL
 fetch_cms_data <- function(.data_link) {
     data_link <- .data_link
 
-    # Check if the URL is valid and starts with the required prefix
-    if (!is.character(data_link) || length(data_link) != 1 || !grepl("^https://data.cms.gov/data-api/v1/dataset/", data_link)) {
+    # Check if the URL is valid
+    url_valid <- is_valid_url(data_link)
+    if (!url_valid) {
         rlang::abort(
-            message = "The provided data link is not valid or does not start with
-            'https://data.cms.gov/data-api/v1/dataset/'. Please first pull an
-            appropriate data link from the CMS data API using the function
-            get_cms_meta_data()",
+            message = "The provided data link is not a valid URL. Please provide a valid URL.",
             use_cli_format = TRUE
         )
     }
 
-    tryCatch({
-        response <- httr2::request(data_link) |>
-            httr2::req_perform()
-        if (httr2::resp_status(response) != 200) {
-            stop("Failed to retrieve data: HTTP status ", httr2::resp_status(response))
+    # Check if the URL starts with the required prefix
+    # API Call?
+    if (startsWith(data_link, "https://data.cms.gov/data-api/v1")) {
+        tryCatch({
+            response <- httr2::request(data_link) |>
+                httr2::req_perform()
+            if (httr2::resp_status(response) != 200) {
+                stop("Failed to retrieve data: HTTP status ", httr2::resp_status(response))
+            }
+            json_data <- httr2::resp_body_json(
+                response, check_type = FALSE, simplifyVector = TRUE
+            )
+            dplyr::as_tibble(json_data) |>
+                janitor::clean_names() |>
+                dplyr::mutate(dplyr::across(dplyr::where(is.character), stringr::str_squish))
+        }, error = function(e) {
+            message("An error occurred: ", e$message)
+            return(NULL)
+        })
+        # File Call?
+    } else if (startsWith(data_link, "https://data.cms.gov/sites/default/files/")) {
+        destfile <- utils::choose.dir()
+        if (is.na(destfile)) {
+            message("No directory chosen. Operation aborted.")
+            return(NULL)
         }
-        json_data <- httr2::resp_body_json(
-            response, check_type = FALSE, simplifyVector = TRUE
+        destfile <- file.path(destfile, basename(data_link))
+        tryCatch({
+            utils::download.file(data_link, destfile)
+            message("File downloaded successfully to ", destfile)
+            return(invisible(destfile))
+        }, error = function(e) {
+            message("An error occurred: ", e$message)
+            return(NULL)
+        })
+    } else {
+        rlang::abort(
+            message = "The provided data link does not match the expected patterns.",
+            use_cli_format = TRUE
         )
-        dplyr::as_tibble(json_data) |>
-            janitor::clean_names() |>
-            dplyr::mutate(dplyr::across(dplyr::where(is.character), stringr::str_squish))
-    }, error = function(e) {
-        message("An error occurred: ", e$message)
-        return(NULL)
-    })
+    }
 }
