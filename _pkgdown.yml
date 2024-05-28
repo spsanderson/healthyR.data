@@ -35,5 +35,8 @@ reference:
   -  title: Built In Data
      contents:
      -  "healthyR_data"
-
+  -  title: Utilities
+     desc: Utility Functions
+     contents:
+     -  has_concept("Utility")
 search:
