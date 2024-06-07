@@ -11,6 +11,8 @@ None
 just API data. Now appropriately handles both API and non-API data such as, .csv,
 vnd.ms-excel and .zip files.
 2. Fix #103 - Added `is_valid_url()` call to `fetch_` functions.
+3. Fix #107 - Add parameter of `.limit` to `fetch_provider_data()` to limit the number
+of records returned via the API. Default is 500 and 0 will return all records.
 
 # healthyR.data 1.1.0
 

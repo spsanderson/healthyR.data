@@ -4,26 +4,33 @@
 \alias{fetch_provider_data}
 \title{Fetch Provider Data as Tibble or Download CSV}
 \usage{
-fetch_provider_data(.data_link)
+fetch_provider_data(.data_link, .limit = 500)
 }
 \arguments{
 \item{.data_link}{A character string containing the URL to fetch data from.}
+
+\item{.limit}{An integer specifying the maximum number of rows to fetch.
+Default is 500. If set to 0, all records will be returned.}
 }
 \value{
-A tibble containing the fetched data with cleaned names, or downloads a CSV file to the user-selected directory. If an error occurs, returns \code{NULL}.
+A tibble containing the fetched data with cleaned names, or downloads
+a CSV file to the user-selected directory. If an error occurs, returns \code{NULL}.
 }
 \description{
 This function retrieves provider data from the provided link and returns it as a tibble
-with cleaned names or downloads the data as a CSV file if the link ends in .csv. This function is intended to be used with the CMS provider data API.
+with cleaned names or downloads the data as a CSV file if the link ends in .csv.
+This function is intended to be used with the CMS provider data API.
 }
 \details{
 The function sends a request to the provided URL using \code{httr2::request} and
 \code{httr2::req_perform}. If the response status is not 200, it stops with an
 error message indicating the failure. If the URL ends in .csv, it uses \code{utils::download.file}
-to download the CSV file to a directory chosen by the user. Otherwise, the response body is parsed as JSON and
-converted into a tibble using \code{dplyr::as_tibble}. The column names are cleaned
-using \code{janitor::clean_names}, and any character columns are stripped of leading
-and trailing whitespace using \code{stringr::str_squish}.
+to download the CSV file to a directory chosen by the user. Otherwise, the
+response body is parsed as JSON and converted into a tibble using
+\code{dplyr::as_tibble}. The column names are cleaned using \code{janitor::clean_names},
+and any character columns are stripped of leading and trailing whitespace
+using \code{stringr::str_squish}. The default limit for a return on records is 500.
+If the limit is set to 0, all records will be returned.
 }
 \examples{
 library(dplyr)
@@ -31,10 +38,9 @@ library(dplyr)
 # Example usage:
 data_url <- "069d-826b"
 
-df_tbl <- fetch_provider_data(data_url)
+df_tbl <- fetch_provider_data(data_url, .limit = 1)
 
 df_tbl |>
- head(1) |>
  glimpse()
 
 }
