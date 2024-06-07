@@ -6,20 +6,26 @@
 #'
 #' @description
 #' This function retrieves provider data from the provided link and returns it as a tibble
-#' with cleaned names or downloads the data as a CSV file if the link ends in .csv. This function is intended to be used with the CMS provider data API.
+#' with cleaned names or downloads the data as a CSV file if the link ends in .csv.
+#' This function is intended to be used with the CMS provider data API.
 #'
 #' @param .data_link A character string containing the URL to fetch data from.
+#' @param .limit An integer specifying the maximum number of rows to fetch.
+#' Default is 500. If set to 0, all records will be returned.
 #'
-#' @return A tibble containing the fetched data with cleaned names, or downloads a CSV file to the user-selected directory. If an error occurs, returns `NULL`.
+#' @return A tibble containing the fetched data with cleaned names, or downloads
+#' a CSV file to the user-selected directory. If an error occurs, returns `NULL`.
 #'
 #' @details
 #' The function sends a request to the provided URL using `httr2::request` and
 #' `httr2::req_perform`. If the response status is not 200, it stops with an
 #' error message indicating the failure. If the URL ends in .csv, it uses `utils::download.file`
-#' to download the CSV file to a directory chosen by the user. Otherwise, the response body is parsed as JSON and
-#' converted into a tibble using `dplyr::as_tibble`. The column names are cleaned
-#' using `janitor::clean_names`, and any character columns are stripped of leading
-#' and trailing whitespace using `stringr::str_squish`.
+#' to download the CSV file to a directory chosen by the user. Otherwise, the
+#' response body is parsed as JSON and converted into a tibble using
+#' `dplyr::as_tibble`. The column names are cleaned using `janitor::clean_names`,
+#' and any character columns are stripped of leading and trailing whitespace
+#' using `stringr::str_squish`. The default limit for a return on records is 500.
+#' If the limit is set to 0, all records will be returned.
 #'
 #' @examples
 #' library(dplyr)
@@ -27,10 +33,9 @@
 #' # Example usage:
 #' data_url <- "069d-826b"
 #'
-#' df_tbl <- fetch_provider_data(data_url)
+#' df_tbl <- fetch_provider_data(data_url, .limit = 1)
 #'
 #' df_tbl |>
-#'  head(1) |>
 #'  glimpse()
 #'
 #' @name fetch_provider_data
@@ -38,8 +43,9 @@ NULL
 #'
 #' @export
 #' @rdname fetch_provider_data
-fetch_provider_data <- function(.data_link) {
+fetch_provider_data <- function(.data_link, .limit = 500) {
     data_link <- .data_link
+    limit <- as.integer(.limit)
 
     # Check if the URL is valid
     url_valid <- is_valid_url(data_link)
@@ -57,7 +63,7 @@ fetch_provider_data <- function(.data_link) {
         data_link <- paste0(
             "https://data.cms.gov/provider-data/api/1/datastore/query/",
             data_link,
-            "/0"
+            "/0?limit=", limit
         )
     }
 
