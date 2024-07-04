@@ -7,7 +7,7 @@
 is_valid_url(url)
 }
 \arguments{
-\item{.url}{A character string representing the URL to be checked.}
+\item{url}{A character string representing the URL to be checked.}
 }
 \value{
 A logical value: \code{TRUE} if the URL is valid, \code{FALSE} otherwise.

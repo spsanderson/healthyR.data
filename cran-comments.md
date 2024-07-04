@@ -6,7 +6,7 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release which adds some new functions.
+* This is a new release which adds some new parameters to current functions.
 
 ## Testing Builds
 * passed rhub::check_for_cran()
