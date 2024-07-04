@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.data</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,19 +52,23 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="healthyrdata-development-version">healthyR.data (development version)<a class="anchor" aria-label="anchor" href="#healthyrdata-development-version"></a></h2>
-<div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<p>None</p>
 </div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.1" id="healthyrdata-111">healthyR.data 1.1.1<a class="anchor" aria-label="anchor" href="#healthyrdata-111"></a></h2><p class="text-muted">CRAN release: 2024-07-04</p>
 <div class="section level3">
-<h3 id="new-function-development-version">New Function<a class="anchor" aria-label="anchor" href="#new-function-development-version"></a></h3>
+<h3 id="breaking-changes-1-1-1">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-1-1"></a></h3>
+<ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.data/issues/111" class="external-link">#111</a> - Requires R version 4.1.0 or higher.</li>
+</ol></div>
+<div class="section level3">
+<h3 id="new-function-1-1-1">New Function<a class="anchor" aria-label="anchor" href="#new-function-1-1-1"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.data/issues/102" class="external-link">#102</a> - Add function <code><a href="../reference/is_valid_url.html">is_valid_url()</a></code>
 </li>
 </ol></div>
 <div class="section level3">
-<h3 id="minor-fixes-and-improvements-development-version">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-development-version"></a></h3>
+<h3 id="minor-fixes-and-improvements-1-1-1">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-1-1-1"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.data/issues/101" class="external-link">#101</a> - Fixed <code><a href="../reference/fetch_cms_data.html">fetch_cms_data()</a></code> to handle all types of data presented, not just API data. Now appropriately handles both API and non-API data such as, .csv, vnd.ms-excel and .zip files.</li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.data/issues/103" class="external-link">#103</a> - Added <code><a href="../reference/is_valid_url.html">is_valid_url()</a></code> call to <code>fetch_</code> functions.</li>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.data/issues/107" class="external-link">#107</a> - Add parameter of <code>.limit</code> to <code><a href="../reference/fetch_provider_data.html">fetch_provider_data()</a></code> to limit the number of records returned via the API. Default is 500 and 0 will return all records.</li>
 </ol></div>
 </div>
     <div class="section level2">
