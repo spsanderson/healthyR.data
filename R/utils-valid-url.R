@@ -12,7 +12,7 @@
 #' This function validates a URL by checking the presence of a scheme and a
 #' hostname in the parsed URL.
 #'
-#' @param .url A character string representing the URL to be checked.
+#' @param url A character string representing the URL to be checked.
 #'
 #' @return A logical value: `TRUE` if the URL is valid, `FALSE` otherwise.
 #'

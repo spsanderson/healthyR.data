@@ -1,7 +1,7 @@
 # healthyR.data (development version)
 
 ## Breaking Changes
-None
+1. Fix #111 - Requires R version 4.1.0 or higher.
 
 ## New Function
 1. Fix #102 - Add function `is_valid_url()`
