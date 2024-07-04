@@ -1,4 +1,4 @@
-# healthyR.data (development version)
+# healthyR.data 1.1.1
 
 ## Breaking Changes
 1. Fix #111 - Requires R version 4.1.0 or higher.
