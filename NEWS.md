@@ -5,7 +5,7 @@
 ## Breaking Changes
 1. Fix #111 - Requires R version 4.1.0 or higher.
 
-## New Function
+## New Functions
 1. Fix #102 - Add function `is_valid_url()`
 
 ## Minor Fixes and Improvements
