@@ -26,11 +26,13 @@ NULL
 #' @rdname is_valid_url
 #' @export
 is_valid_url <- function(url) {
-    parsed_url <- httr2::url_parse(url)
-    # Check if the parsed URL has a scheme and a host
-    if (is.null(parsed_url$scheme) || is.null(parsed_url$hostname)) {
-        return(FALSE)
-    } else {
-        return(TRUE)
-    }
+    tryCatch(
+        {
+            httr2::url_parse(url)
+            !is.null(parsed_url$scheme) && !is.null(parsed_url$hostname)
+        },
+        error = function(cnd) {
+            FALSE
+        }
+    )
 }
