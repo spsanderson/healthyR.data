@@ -28,7 +28,7 @@ NULL
 is_valid_url <- function(url) {
     tryCatch(
         {
-            httr2::url_parse(url)
+            parsed_url <- httr2::url_parse(url)
             !is.null(parsed_url$scheme) && !is.null(parsed_url$hostname)
         },
         error = function(cnd) {
