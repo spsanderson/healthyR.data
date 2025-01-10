@@ -1,5 +1,14 @@
 # healthyR.data (development version)
 
+## Breaking Changes
+None
+
+## New Functions
+None
+
+## Minor Fixes and Improvements
+1. #116 Fix for httr2 from @hadley
+
 # healthyR.data 1.1.1
 
 ## Breaking Changes
