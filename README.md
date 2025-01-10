@@ -65,9 +65,6 @@ glimpse(df)
 #> $ los_outlier_flag         <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 #> $ readmit_flag             <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 #> $ readmit_expectation      <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-```
-
-``` r
 
 df %>% 
     count(ip_op_flag, service_line) %>%
