@@ -1,108 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/404.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_asc_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_asc_oas_cahps_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_comp_death_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_hai_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_hcahps_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_hosp_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_hosp_data_dict.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_hvbp_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_imaging_efficiency_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_ipfqr_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_maternal_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_medicare_hospital_spending_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_oqr_oas_cahps_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_outpatient_imaging_efficiency_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_payments_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hai_hospital_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hcahps_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_oncology_measures_hospital_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_outcomes_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_timely_and_effective_care_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_unplanned_hospital_visits_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/current_va_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/fetch_cms_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/fetch_provider_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/get_cms_meta_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/get_provider_meta_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/healthyR_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.data/reference/is_valid_url.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://www.spsanderson.com/healthyR.data/404.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/authors.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/LICENSE-text.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/LICENSE.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/news/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_asc_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_asc_oas_cahps_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_comp_death_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_hai_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_hcahps_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_hosp_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_hosp_data_dict.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_hvbp_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_imaging_efficiency_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_ipfqr_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_maternal_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_medicare_hospital_spending_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_oqr_oas_cahps_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_outpatient_imaging_efficiency_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_payments_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hai_hospital_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_hcahps_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_oncology_measures_hospital_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_pch_outcomes_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_timely_and_effective_care_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_unplanned_hospital_visits_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/current_va_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/fetch_cms_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/fetch_provider_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/get_cms_meta_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/get_provider_meta_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/healthyR_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.data/reference/is_valid_url.html</loc></url>
 </urlset>
+
