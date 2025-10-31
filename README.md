@@ -14,37 +14,92 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
 
-The goal of the { healthyR.data } package is to provide a simple yet
-feature rich administrative data-set allowing for the testing of
-functions inside of the { healthyR } package. It can be used to test its
-functions or any function you create.
+## Overview
+
+**healthyR.data** is a comprehensive R package that provides healthcare
+administrative datasets and tools for accessing CMS (Centers for
+Medicare & Medicaid Services) hospital data. The package serves two
+primary purposes:
+
+1.  **Built-in Healthcare Data**: Provides a rich, realistic
+    administrative dataset (`healthyR_data`) with 187,721 rows covering
+    hospital visits, patient demographics, charges, payments, and
+    quality metrics
+2.  **CMS Data Access**: Offers a suite of functions to fetch, download,
+    and work with current CMS hospital data, including quality measures,
+    outcomes, and provider information
+
+Whether you're testing healthcare analytics functions, teaching health
+informatics, or conducting research, **healthyR.data** provides the data
+infrastructure you need.
+
+## Features
+
+### Built-in Administrative Dataset
+
+The `healthyR_data` dataset includes:
+
+- **Patient Information**: Medical Record Numbers (MRN), visit IDs, and
+  visit dates
+- **Financial Data**: Charges, payments, adjustments, and amounts due
+- **Clinical Metrics**: Length of stay, service lines, readmission flags
+- **Quality Indicators**: Expected vs actual length of stay, outlier
+  flags, readmission expectations
+- **Payer Information**: Insurance classifications and payer groupings
+
+### CMS Data Access Functions
+
+The package provides multiple ways to access current CMS hospital data:
+
+1.  **Meta Data Functions**: Search and explore available CMS datasets
+    - `get_cms_meta_data()` - Search CMS data catalog
+    - `get_provider_meta_data()` - Search provider data
+2.  **Data Download Functions**: Fetch current hospital data
+    - `current_hosp_data()` - Download all current hospital data
+    - `fetch_cms_data()` - Fetch specific CMS datasets
+    - `fetch_provider_data()` - Fetch provider data via API
+3.  **Specific Hospital Data Functions**: Get targeted datasets
+    - `current_asc_data()` - Ambulatory Surgery Center data
+    - `current_hcahps_data()` - Hospital Consumer Assessment of
+      Healthcare Providers and Systems
+    - `current_hai_data()` - Healthcare-Associated Infections
+    - `current_readmission_data()` - Hospital readmissions
+    - And 20+ more specific data extraction functions
+
+### Utility Functions
+
+- `is_valid_url()` - Validate URLs before data fetching
+- `current_hosp_data_dict()` - Get data dictionaries
 
 ## Installation
 
-You can install the released version of healthyR.data from
-[CRAN](https://CRAN.R-project.org) with:
+Install the released version from
+[CRAN](https://CRAN.R-project.org):
 
 ``` r
 install.packages("healthyR.data")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+Install the development version from
+[GitHub](https://github.com/spsanderson/healthyR.data):
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("spsanderson/healthyR.data")
 ```
 
-## Example
+## Quick Start
 
-This is a basic example which shows you how to solve a common problem:
+### Using the Built-in Dataset
 
 ``` r
 library(healthyR.data)
 library(dplyr)
 
+# Load the built-in dataset
 df <- healthyR_data
 
+# Explore the data structure
 glimpse(df)
 #> Rows: 187,721
 #> Columns: 17
@@ -66,11 +121,13 @@ glimpse(df)
 #> $ readmit_flag             <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 #> $ readmit_expectation      <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 
+# Analyze service lines by patient type
 df %>% 
     count(ip_op_flag, service_line) %>%
     arrange(ip_op_flag, desc(n)) %>%
-    rename(count = n)
-#> # A tibble: 30 × 3
+    rename(count = n) %>%
+    head(10)
+#> # A tibble: 10 × 3
 #>    ip_op_flag service_line                                 count
 #>    <chr>      <chr>                                        <int>
 #>  1 I          Medical                                      64435
@@ -83,5 +140,243 @@ df %>%
 #>  8 I          Chest Pain                                    2766
 #>  9 I          GI Hemorrhage                                 2404
 #> 10 I          MI                                            2253
-#> # ℹ 20 more rows
 ```
+
+### Analyzing Financial Data
+
+``` r
+# Analyze charges and payments by payer type
+df %>%
+    group_by(payer_grouping) %>%
+    summarise(
+        visits = n(),
+        avg_charge = mean(total_charge_amount, na.rm = TRUE),
+        avg_payment = mean(abs(total_payment_amount), na.rm = TRUE),
+        .groups = "drop"
+    ) %>%
+    arrange(desc(visits)) %>%
+    head(10)
+#> # A tibble: 10 × 4
+#>    payer_grouping visits avg_charge avg_payment
+#>    <chr>           <int>      <dbl>       <dbl>
+#>  1 Medicare B      52969      5996.       1743.
+#>  2 HMO             31186      9456.       4055.
+#>  3 Medicare HMO    28352     10498.       5316.
+#>  4 Blue Cross      27690     12014.       5857.
+#>  5 Self Pay        14260      7449.       1032.
+#>  6 Commercial      11926     13059.       6547.
+#>  7 PPO              7995     12832.       6322.
+#>  8 Medicaid         7134      7936.       2677.
+#>  9 DHCP             2690      9583.       4406.
+#> 10 Medicare A       1916     44298.      17989.
+```
+
+### Quality Metrics Analysis
+
+``` r
+# Examine length of stay outliers
+df %>%
+    filter(ip_op_flag == "I") %>%  # Inpatient only
+    group_by(service_line) %>%
+    summarise(
+        total_visits = n(),
+        avg_los = mean(length_of_stay, na.rm = TRUE),
+        outlier_rate = mean(los_outlier_flag, na.rm = TRUE) * 100,
+        readmit_rate = mean(readmit_flag, na.rm = TRUE) * 100,
+        .groups = "drop"
+    ) %>%
+    arrange(desc(total_visits)) %>%
+    head(10)
+#> # A tibble: 10 × 5
+#>    service_line                                 total_visits avg_los outlier_rate
+#>    <chr>                                               <int>   <dbl>        <dbl>
+#>  1 Medical                                             64435    4.84         4.08
+#>  2 Surgical                                            14916    5.20         5.00
+#>  3 COPD                                                 4398    4.96         7.37
+#>  4 CHF                                                  3871    5.36         7.98
+#>  5 Pneumonia                                            3323    5.46         6.38
+#>  6 Cellulitis                                           3311    5.25         5.95
+#>  7 Major Depression/Bipolar Affective Disorders         2866   10.6          5.65
+#>  8 Chest Pain                                           2766    2.59         3.10
+#>  9 GI Hemorrhage                                        2404    4.72         5.32
+#> 10 MI                                                   2253    5.05         4.62
+#> # ℹ 1 more variable: readmit_rate <dbl>
+```
+
+## Working with CMS Data
+
+### Searching for CMS Datasets
+
+``` r
+library(healthyR.data)
+
+# Search for datasets about hospital readmissions
+meta_data <- get_cms_meta_data(
+    .keyword = "readmission",
+    .data_version = "current"
+)
+
+# View available datasets
+meta_data %>%
+    select(title, modified, media_type) %>%
+    head()
+```
+
+### Fetching CMS Data via API
+
+``` r
+# Get metadata for a specific dataset
+cms_meta <- get_cms_meta_data(
+    .title = "Unplanned Hospital Visits",
+    .data_version = "current",
+    .media_type = "API"
+)
+
+# Extract the data link
+data_link <- cms_meta$data_link[1]
+
+# Fetch the actual data
+hospital_data <- fetch_cms_data(data_link)
+
+glimpse(hospital_data)
+```
+
+### Downloading Complete Hospital Data
+
+``` r
+# Download all current hospital data files (requires user to select directory)
+all_hosp_data <- current_hosp_data()
+
+# The result is a list of tibbles, one for each data file
+names(all_hosp_data)
+
+# Extract specific datasets
+asc_data <- current_asc_data(
+    all_hosp_data, 
+    .data_sets = c("Facility", "State")
+)
+```
+
+### Working with Provider Data
+
+``` r
+# Search for provider datasets
+provider_meta <- get_provider_meta_data(.keyword = "hospital")
+
+# Fetch provider data using an identifier
+provider_data <- fetch_provider_data("069d-826b", .limit = 100)
+
+glimpse(provider_data)
+```
+
+## Use Cases
+
+**healthyR.data** is ideal for:
+
+- **Healthcare Analytics**: Test and develop healthcare analytics
+  functions with realistic data
+- **Education**: Teach health informatics and data analysis courses
+- **Research**: Prototype healthcare research analyses before working
+  with protected data
+- **Package Development**: Test healthcare R packages (like the
+  [healthyR](https://github.com/spsanderson/healthyR) package)
+- **Quality Improvement**: Analyze hospital quality metrics and
+  performance indicators
+- **Financial Analysis**: Study healthcare billing, payments, and
+  reimbursement patterns
+- **Benchmarking**: Compare your data against national hospital data
+  from CMS
+
+## Data Dictionary
+
+The `healthyR_data` dataset contains 187,721 rows and 17 variables:
+
+| Variable                   | Description                                         |
+|----------------------------|-----------------------------------------------------|
+| `mrn`                      | Medical Record Number (unique patient identifier)   |
+| `visit_id`                 | Unique hospital visit identifier                    |
+| `visit_start_date_time`    | Visit start date and time                           |
+| `visit_end_date_time`      | Visit end date and time                             |
+| `total_charge_amount`      | Total charges for the visit (USD)                   |
+| `total_amount_due`         | Amount still owed for the visit (USD)               |
+| `total_adjustment_amount`  | Total adjustments to the account (USD)              |
+| `payer_grouping`           | Insurance classification                            |
+| `total_payment_amount`     | Total payments received (USD)                       |
+| `ip_op_flag`               | Patient type (I=Inpatient, O=Outpatient)            |
+| `service_line`             | Hospital service line                               |
+| `length_of_stay`           | Total days admitted to hospital                     |
+| `expected_length_of_stay`  | Expected days for admission                         |
+| `length_of_stay_threshold` | LOS threshold for outlier classification            |
+| `los_outlier_flag`         | Binary indicator if visit exceeded LOS threshold    |
+| `readmit_flag`             | Binary indicator if readmitted within 30 days       |
+| `readmit_expectation`      | Expected readmission rate from benchmark            |
+
+## Requirements
+
+- R >= 4.1.0
+- Dependencies: `dplyr`, `rlang`, `utils`, `janitor`, `httr2`,
+  `stringr`, `tidyr`, `stats`
+
+## Documentation
+
+- [Package Website](https://www.spsanderson.com/healthyR.data/)
+- [Function
+  Reference](https://www.spsanderson.com/healthyR.data/reference/index.html)
+- [News/Changelog](https://www.spsanderson.com/healthyR.data/news/index.html)
+
+## Getting Help
+
+If you encounter a bug or have a feature request:
+
+- [Report issues on
+  GitHub](https://github.com/spsanderson/healthyR.data/issues)
+- Check the [function
+  reference](https://www.spsanderson.com/healthyR.data/reference/index.html)
+  for detailed documentation
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+For major changes:
+
+1.  Fork the repository
+2.  Create your feature branch
+    (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+Please make sure to update tests as appropriate and follow the existing
+code style.
+
+## Related Packages
+
+- [healthyR](https://github.com/spsanderson/healthyR) - Hospital data
+  analysis workflow tools
+- [healthyverse](https://github.com/spsanderson/healthyverse) -
+  Meta-package for healthcare analytics
+
+## License
+
+MIT License - see [LICENSE.md](LICENSE.md) for details
+
+## Author
+
+Steven P. Sanderson II, MPH  
+Email: spsanderson@gmail.com  
+ORCID: [0009-0006-7661-8247](https://orcid.org/0009-0006-7661-8247)
+
+## Citation
+
+If you use this package in your research, please cite:
+
+``` r
+citation("healthyR.data")
+```
+
+------------------------------------------------------------------------
+
+**Note**: The built-in `healthyR_data` dataset contains
+synthetic/de-identified data for demonstration and testing purposes.
+When working with CMS data functions, you're accessing real, publicly
+available CMS hospital data.
