@@ -292,7 +292,7 @@ glimpse(provider_data)
 The `healthyR_data` dataset contains 187,721 rows and 17 variables:
 
 | Variable                   | Description                                         |
-|----------------------------|-----------------------------------------------------|
+| -------------------------- | --------------------------------------------------- |
 | `mrn`                      | Medical Record Number (unique patient identifier)   |
 | `visit_id`                 | Unique hospital visit identifier                    |
 | `visit_start_date_time`    | Visit start date and time                           |
@@ -374,7 +374,7 @@ If you use this package in your research, please cite:
 citation("healthyR.data")
 ```
 
-------------------------------------------------------------------------
+---
 
 **Note**: The built-in `healthyR_data` dataset contains
 synthetic/de-identified data for demonstration and testing purposes.
