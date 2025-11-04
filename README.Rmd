@@ -27,6 +27,8 @@ knitr::opts_chunk$set(
 
 ## Overview
 
+To view the full wiki, click here: [Full healthyR.data Wiki](https://github.com/spsanderson/healthyR.data/blob/master/wiki/Home.md)
+
 **healthyR.data** is a comprehensive R package that provides healthcare administrative datasets and tools for accessing CMS (Centers for Medicare & Medicaid Services) hospital data. The package serves two primary purposes:
 
 1. **Built-in Healthcare Data**: Provides a rich, realistic administrative dataset (`healthyR_data`) with 187,721 rows covering hospital visits, patient demographics, charges, payments, and quality metrics
