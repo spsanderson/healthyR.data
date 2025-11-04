@@ -323,7 +323,7 @@ After successful installation:
 
 1. Read the [Getting Started](Getting-Started.md) guide
 2. Explore the [Built-in Dataset](Built-in-Dataset.md)
-3. Try the [Quick Start Examples](Quick-Start-Examples.md)
+3. Try the [Quick Start Examples](Use-Cases-and-Examples.md)
 4. Review the [Function Reference](Function-Reference.md)
 
 ---
