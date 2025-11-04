@@ -16,6 +16,9 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 
 ## Overview
 
+To view the full wiki, click here: [Full healthyR.data
+Wiki](https://github.com/spsanderson/healthyR.data/blob/master/wiki/Home.md)
+
 **healthyR.data** is a comprehensive R package that provides healthcare
 administrative datasets and tools for accessing CMS (Centers for
 Medicare & Medicaid Services) hospital data. The package serves two
@@ -29,7 +32,7 @@ primary purposes:
     and work with current CMS hospital data, including quality measures,
     outcomes, and provider information
 
-Whether you're testing healthcare analytics functions, teaching health
+Whether you’re testing healthcare analytics functions, teaching health
 informatics, or conducting research, **healthyR.data** provides the data
 infrastructure you need.
 
@@ -73,8 +76,7 @@ The package provides multiple ways to access current CMS hospital data:
 
 ## Installation
 
-Install the released version from
-[CRAN](https://CRAN.R-project.org):
+Install the released version from [CRAN](https://CRAN.R-project.org):
 
 ``` r
 install.packages("healthyR.data")
@@ -159,16 +161,16 @@ df %>%
 #> # A tibble: 10 × 4
 #>    payer_grouping visits avg_charge avg_payment
 #>    <chr>           <int>      <dbl>       <dbl>
-#>  1 Medicare B      52969      5996.       1743.
-#>  2 HMO             31186      9456.       4055.
-#>  3 Medicare HMO    28352     10498.       5316.
-#>  4 Blue Cross      27690     12014.       5857.
-#>  5 Self Pay        14260      7449.       1032.
-#>  6 Commercial      11926     13059.       6547.
-#>  7 PPO              7995     12832.       6322.
-#>  8 Medicaid         7134      7936.       2677.
-#>  9 DHCP             2690      9583.       4406.
-#> 10 Medicare A       1916     44298.      17989.
+#>  1 Medicare A      52622     68452.      11861.
+#>  2 Medicaid HMO    25484     37285.       5575.
+#>  3 Blue Cross      24357     31561.      10374.
+#>  4 Medicare B      22563     16136.       2531.
+#>  5 Medicare HMO    18997     55526.       8443.
+#>  6 HMO             17444     31407.       9405.
+#>  7 Medicaid         8777     49428.       7602.
+#>  8 Commercial       6567     35300.      12506.
+#>  9 Self Pay         3649     24998.        662.
+#> 10 Compensation     2502     40101.       6413.
 ```
 
 ### Quality Metrics Analysis
@@ -188,19 +190,18 @@ df %>%
     arrange(desc(total_visits)) %>%
     head(10)
 #> # A tibble: 10 × 5
-#>    service_line                                 total_visits avg_los outlier_rate
-#>    <chr>                                               <int>   <dbl>        <dbl>
-#>  1 Medical                                             64435    4.84         4.08
-#>  2 Surgical                                            14916    5.20         5.00
-#>  3 COPD                                                 4398    4.96         7.37
-#>  4 CHF                                                  3871    5.36         7.98
-#>  5 Pneumonia                                            3323    5.46         6.38
-#>  6 Cellulitis                                           3311    5.25         5.95
-#>  7 Major Depression/Bipolar Affective Disorders         2866   10.6          5.65
-#>  8 Chest Pain                                           2766    2.59         3.10
-#>  9 GI Hemorrhage                                        2404    4.72         5.32
-#> 10 MI                                                   2253    5.05         4.62
-#> # ℹ 1 more variable: readmit_rate <dbl>
+#>    service_line                   total_visits avg_los outlier_rate readmit_rate
+#>    <chr>                                 <int>   <dbl>        <dbl>        <dbl>
+#>  1 Medical                               64435    5.72       0.205         12.8 
+#>  2 Surgical                              14916    9.35       0.436         10.8 
+#>  3 COPD                                   4398    5.28       0.0910        19.6 
+#>  4 CHF                                    3871    6.42       0.103         21.1 
+#>  5 Pneumonia                              3323    5.89       0.120         14.2 
+#>  6 Cellulitis                             3311    4.78       0.242          9.09
+#>  7 Major Depression/Bipolar Affe…         2866   10.4        0.105          5.58
+#>  8 Chest Pain                             2766    2.05       0.145          8.28
+#>  9 GI Hemorrhage                          2404    5.86       0.416         14.6 
+#> 10 MI                                     2253    4.96       0.266         14.4
 ```
 
 ## Working with CMS Data
@@ -291,29 +292,29 @@ glimpse(provider_data)
 
 The `healthyR_data` dataset contains 187,721 rows and 17 variables:
 
-| Variable                   | Description                                         |
-| -------------------------- | --------------------------------------------------- |
-| `mrn`                      | Medical Record Number (unique patient identifier)   |
-| `visit_id`                 | Unique hospital visit identifier                    |
-| `visit_start_date_time`    | Visit start date and time                           |
-| `visit_end_date_time`      | Visit end date and time                             |
-| `total_charge_amount`      | Total charges for the visit (USD)                   |
-| `total_amount_due`         | Amount still owed for the visit (USD)               |
-| `total_adjustment_amount`  | Total adjustments to the account (USD)              |
-| `payer_grouping`           | Insurance classification                            |
-| `total_payment_amount`     | Total payments received (USD)                       |
-| `ip_op_flag`               | Patient type (I=Inpatient, O=Outpatient)            |
-| `service_line`             | Hospital service line                               |
-| `length_of_stay`           | Total days admitted to hospital                     |
-| `expected_length_of_stay`  | Expected days for admission                         |
-| `length_of_stay_threshold` | LOS threshold for outlier classification            |
-| `los_outlier_flag`         | Binary indicator if visit exceeded LOS threshold    |
-| `readmit_flag`             | Binary indicator if readmitted within 30 days       |
-| `readmit_expectation`      | Expected readmission rate from benchmark            |
+| Variable | Description |
+|----|----|
+| `mrn` | Medical Record Number (unique patient identifier) |
+| `visit_id` | Unique hospital visit identifier |
+| `visit_start_date_time` | Visit start date and time |
+| `visit_end_date_time` | Visit end date and time |
+| `total_charge_amount` | Total charges for the visit (USD) |
+| `total_amount_due` | Amount still owed for the visit (USD) |
+| `total_adjustment_amount` | Total adjustments to the account (USD) |
+| `payer_grouping` | Insurance classification |
+| `total_payment_amount` | Total payments received (USD) |
+| `ip_op_flag` | Patient type (I=Inpatient, O=Outpatient) |
+| `service_line` | Hospital service line |
+| `length_of_stay` | Total days admitted to hospital |
+| `expected_length_of_stay` | Expected days for admission |
+| `length_of_stay_threshold` | LOS threshold for outlier classification |
+| `los_outlier_flag` | Binary indicator if visit exceeded LOS threshold |
+| `readmit_flag` | Binary indicator if readmitted within 30 days |
+| `readmit_expectation` | Expected readmission rate from benchmark |
 
 ## Requirements
 
-- R >= 4.1.0
+- R \>= 4.1.0
 - Dependencies: `dplyr`, `rlang`, `utils`, `janitor`, `httr2`,
   `stringr`, `tidyr`, `stats`
 
@@ -363,7 +364,7 @@ MIT License - see [LICENSE.md](LICENSE.md) for details
 ## Author
 
 Steven P. Sanderson II, MPH  
-Email: spsanderson@gmail.com  
+Email: <spsanderson@gmail.com>  
 ORCID: [0009-0006-7661-8247](https://orcid.org/0009-0006-7661-8247)
 
 ## Citation
@@ -374,9 +375,9 @@ If you use this package in your research, please cite:
 citation("healthyR.data")
 ```
 
----
+------------------------------------------------------------------------
 
 **Note**: The built-in `healthyR_data` dataset contains
 synthetic/de-identified data for demonstration and testing purposes.
-When working with CMS data functions, you're accessing real, publicly
+When working with CMS data functions, you’re accessing real, publicly
 available CMS hospital data.
