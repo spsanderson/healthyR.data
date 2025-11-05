@@ -19,7 +19,6 @@ Welcome to the comprehensive wiki for **healthyR.data**, an R package that provi
 ### Getting Started
 - [Installation Guide](Installation-Guide.md) - How to install healthyR.data
 - [Getting Started](Getting-Started.md) - Your first steps with the package
-- [Quick Start Examples](Quick-Start-Examples.md) - Common use cases and examples
 
 ### Core Features
 - [Built-in Dataset](Built-in-Dataset.md) - Details about the healthyR_data dataset
@@ -28,15 +27,9 @@ Welcome to the comprehensive wiki for **healthyR.data**, an R package that provi
 
 ### Function Reference
 - [Function Reference by Category](Function-Reference.md) - All functions organized by purpose
-- [Meta Data Functions](Meta-Data-Functions.md) - Searching CMS datasets
-- [Data Download Functions](Data-Download-Functions.md) - Fetching CMS data
-- [Specific Hospital Data Functions](Specific-Hospital-Data-Functions.md) - Targeted data extraction
-- [Utility Functions](Utility-Functions.md) - Helper functions
 
 ### Advanced Topics
 - [Use Cases and Examples](Use-Cases-and-Examples.md) - Real-world applications
-- [Working with Financial Data](Working-with-Financial-Data.md) - Analyzing charges and payments
-- [Quality Metrics Analysis](Quality-Metrics-Analysis.md) - Hospital performance indicators
 - [API Reference](API-Reference.md) - Technical API details
 
 ### Support and Contributing
