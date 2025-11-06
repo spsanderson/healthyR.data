@@ -1,8 +1,8 @@
 pandoc: 3.6.3
-pkgdown: 2.1.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-11-04T19:06Z
+last_built: 2025-11-06T20:42Z
 urls:
   reference: https://www.spsanderson.com/healthyR.data/reference
   article: https://www.spsanderson.com/healthyR.data/articles
