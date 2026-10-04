@@ -1,5 +1,15 @@
 # healthyR.data (development version)
 
+## Breaking Changes
+None
+
+## New Functions
+None
+
+## Minor Fixes and Improvements
+* Fix #131: `get_cms_meta_data()` handles missing, invalid, and open-ended CMS
+  dates without failing during date conversion or warning about missing endpoints.
+
 # healthyR.data 1.2.0
 
 ## Breaking Changes

@@ -41,6 +41,9 @@ and processes it to create a tibble with relevant information about the datasets
 The function fetches JSON data from the CMS data URL and extracts relevant fields to
 create a tidy tibble. It selects specific columns, handles nested lists by unnesting them,
 cleans column names, and processes dates and media types to make the data more useful for analysis.
+Dates use the CMS ISO format (YYYY-MM-DD). Missing or invalid dates are
+returned as \code{NA}. Temporal values without an end date have an
+\code{NA} end date; open interval endpoints are also returned as \code{NA}.
 The columns in the returned tibble are:
 \itemize{
 \item \code{title}
@@ -78,8 +81,8 @@ get_cms_meta_data(
 \seealso{
 \url{https://data.cms.gov/data.json}
 
-Other Meta Data: 
-\code{\link{get_provider_meta_data}()}
+Other Meta Data:
+\code{\link[=get_provider_meta_data]{get_provider_meta_data()}}
 }
 \author{
 Steven P. Sanderson II, MPH

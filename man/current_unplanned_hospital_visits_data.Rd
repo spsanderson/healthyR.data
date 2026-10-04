@@ -48,26 +48,26 @@ current_hosp_data() |>
 \seealso{
 \url{https://data.cms.gov/provider-data/topics/hospitals/}
 
-Other Hospital Data: 
-\code{\link{current_asc_data}()},
-\code{\link{current_asc_oas_cahps_data}()},
-\code{\link{current_comp_death_data}()},
-\code{\link{current_hai_data}()},
-\code{\link{current_hcahps_data}()},
-\code{\link{current_hosp_data}()},
-\code{\link{current_hvbp_data}()},
-\code{\link{current_ipfqr_data}()},
-\code{\link{current_maternal_data}()},
-\code{\link{current_medicare_hospital_spending_data}()},
-\code{\link{current_oqr_oas_cahps_data}()},
-\code{\link{current_outpatient_imaging_efficiency_data}()},
-\code{\link{current_payments_data}()},
-\code{\link{current_pch_hai_hospital_data}()},
-\code{\link{current_pch_hcahps_data}()},
-\code{\link{current_pch_oncology_measures_hospital_data}()},
-\code{\link{current_pch_outcomes_data}()},
-\code{\link{current_timely_and_effective_care_data}()},
-\code{\link{current_va_data}()}
+Other Hospital Data:
+\code{\link[=current_asc_data]{current_asc_data()}},
+\code{\link[=current_asc_oas_cahps_data]{current_asc_oas_cahps_data()}},
+\code{\link[=current_comp_death_data]{current_comp_death_data()}},
+\code{\link[=current_hai_data]{current_hai_data()}},
+\code{\link[=current_hcahps_data]{current_hcahps_data()}},
+\code{\link[=current_hosp_data]{current_hosp_data()}},
+\code{\link[=current_hvbp_data]{current_hvbp_data()}},
+\code{\link[=current_ipfqr_data]{current_ipfqr_data()}},
+\code{\link[=current_maternal_data]{current_maternal_data()}},
+\code{\link[=current_medicare_hospital_spending_data]{current_medicare_hospital_spending_data()}},
+\code{\link[=current_oqr_oas_cahps_data]{current_oqr_oas_cahps_data()}},
+\code{\link[=current_outpatient_imaging_efficiency_data]{current_outpatient_imaging_efficiency_data()}},
+\code{\link[=current_payments_data]{current_payments_data()}},
+\code{\link[=current_pch_hai_hospital_data]{current_pch_hai_hospital_data()}},
+\code{\link[=current_pch_hcahps_data]{current_pch_hcahps_data()}},
+\code{\link[=current_pch_oncology_measures_hospital_data]{current_pch_oncology_measures_hospital_data()}},
+\code{\link[=current_pch_outcomes_data]{current_pch_outcomes_data()}},
+\code{\link[=current_timely_and_effective_care_data]{current_timely_and_effective_care_data()}},
+\code{\link[=current_va_data]{current_va_data()}}
 }
 \author{
 Steven P. Sanderson II, MPH
