@@ -9,7 +9,7 @@
 ![](http://cranlogs.r-pkg.org/badges/healthyR.data?color=brightgreen)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/healthyR.data?color=brightgreen)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html##stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
@@ -363,8 +363,8 @@ MIT License - see [LICENSE.md](LICENSE.md) for details
 
 ## Author
 
-Steven P. Sanderson II, MPH  
-Email: <spsanderson@gmail.com>  
+Steven P. Sanderson II, MPH\
+Email: <spsanderson@gmail.com>\
 ORCID: [0009-0006-7661-8247](https://orcid.org/0009-0006-7661-8247)
 
 ## Citation
