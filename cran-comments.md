@@ -6,8 +6,8 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a update release to address an issue with httr2.
+* This is a update release to address an issue from CRAN for a meta-data 
+download parsing erro.
 
 ## Testing Builds
-* passed rhub::check_for_cran()
 * passed devtools::check_win_devel()
