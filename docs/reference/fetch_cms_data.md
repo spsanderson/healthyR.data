@@ -65,23 +65,24 @@ df_tbl |>
  head(1) |>
  glimpse()
 #> Rows: 1
-#> Columns: 30
+#> Columns: 31
 #> $ aco_id                       <chr> "A2811"
 #> $ par_lbn                      <chr> "ARIZONA COMMUNITY PHYSICIANS PC"
 #> $ aco_name                     <chr> "Abacus Health LLC"
 #> $ aco_service_area             <chr> "AZ"
 #> $ agreement_period_num         <chr> "3"
-#> $ initial_start_date           <chr> "1/1/2016"
-#> $ current_start_date           <chr> "1/1/2024"
+#> $ initial_start_date           <chr> "2016-01-01"
+#> $ current_start_date           <chr> "2024-01-01"
 #> $ re_entering_aco              <chr> "0"
 #> $ basic_track                  <chr> "0"
-#> $ basic_track_level            <chr> ""
+#> $ basic_track_level            <chr> "N/A"
 #> $ enhanced_track               <chr> "1"
 #> $ high_revenue_aco             <chr> "0"
 #> $ low_revenue_aco              <chr> "1"
 #> $ adv_pay                      <chr> "0"
 #> $ aim                          <chr> "0"
 #> $ aip                          <chr> "0"
+#> $ pss                          <chr> "0"
 #> $ snf_3_day_rule_waiver        <chr> "0"
 #> $ prospective_assignment       <chr> "0"
 #> $ retrospective_assignment     <chr> "1"

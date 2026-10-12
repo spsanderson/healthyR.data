@@ -2,6 +2,25 @@
 
 ## healthyR.data (development version)
 
+## healthyR.data 1.2.1
+
+CRAN release: 2026-10-08
+
+### Breaking Changes
+
+None
+
+### New Functions
+
+None
+
+### Minor Fixes and Improvements
+
+- Fix [\#131](https://github.com/spsanderson/healthyR.data/issues/131):
+  [`get_cms_meta_data()`](https://www.spsanderson.com/healthyR.data/reference/get_cms_meta_data.md)
+  handles missing, invalid, and open-ended CMS dates without failing
+  during date conversion or warning about missing endpoints.
+
 ## healthyR.data 1.2.0
 
 CRAN release: 2025-01-13

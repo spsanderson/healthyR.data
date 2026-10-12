@@ -74,6 +74,7 @@ The package provides multiple ways to access current CMS hospital data:
 Install the released version from [CRAN](https://CRAN.R-project.org):
 
 ``` r
+
 install.packages("healthyR.data")
 ```
 
@@ -81,6 +82,7 @@ Install the development version from
 [GitHub](https://github.com/spsanderson/healthyR.data):
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("spsanderson/healthyR.data")
 ```
@@ -90,6 +92,7 @@ devtools::install_github("spsanderson/healthyR.data")
 ### Using the Built-in Dataset
 
 ``` r
+
 library(healthyR.data)
 library(dplyr)
 
@@ -142,6 +145,7 @@ df %>%
 ### Analyzing Financial Data
 
 ``` r
+
 # Analyze charges and payments by payer type
 df %>%
     group_by(payer_grouping) %>%
@@ -171,6 +175,7 @@ df %>%
 ### Quality Metrics Analysis
 
 ``` r
+
 # Examine length of stay outliers
 df %>%
     filter(ip_op_flag == "I") %>%  # Inpatient only
@@ -204,6 +209,7 @@ df %>%
 ### Searching for CMS Datasets
 
 ``` r
+
 library(healthyR.data)
 
 # Search for datasets about hospital readmissions
@@ -221,6 +227,7 @@ meta_data %>%
 ### Fetching CMS Data via API
 
 ``` r
+
 # Get metadata for a specific dataset
 cms_meta <- get_cms_meta_data(
     .title = "Unplanned Hospital Visits",
@@ -240,6 +247,7 @@ glimpse(hospital_data)
 ### Downloading Complete Hospital Data
 
 ``` r
+
 # Download all current hospital data files (requires user to select directory)
 all_hosp_data <- current_hosp_data()
 
@@ -256,6 +264,7 @@ asc_data <- current_asc_data(
 ### Working with Provider Data
 
 ``` r
+
 # Search for provider datasets
 provider_meta <- get_provider_meta_data(.keyword = "hospital")
 
@@ -360,8 +369,8 @@ details
 
 ## Author
 
-Steven P. Sanderson II, MPH  
-Email: <spsanderson@gmail.com>  
+Steven P. Sanderson II, MPH\
+Email: <spsanderson@gmail.com>\
 ORCID: [0009-0006-7661-8247](https://orcid.org/0009-0006-7661-8247)
 
 ## Citation
@@ -369,6 +378,7 @@ ORCID: [0009-0006-7661-8247](https://orcid.org/0009-0006-7661-8247)
 If you use this package in your research, please cite:
 
 ``` r
+
 citation("healthyR.data")
 ```
 

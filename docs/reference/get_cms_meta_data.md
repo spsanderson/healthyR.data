@@ -57,7 +57,10 @@ The function fetches JSON data from the CMS data URL and extracts
 relevant fields to create a tidy tibble. It selects specific columns,
 handles nested lists by unnesting them, cleans column names, and
 processes dates and media types to make the data more useful for
-analysis. The columns in the returned tibble are:
+analysis. Dates use the CMS ISO format (YYYY-MM-DD). Missing or invalid
+dates are returned as `NA`. Temporal values without an end date have an
+`NA` end date; open interval endpoints are also returned as `NA`. The
+columns in the returned tibble are:
 
 - `title`
 
@@ -120,25 +123,27 @@ get_cms_meta_data(
 ) |>
   glimpse()
 #> Rows: 1
-#> Columns: 20
+#> Columns: 22
 #> $ title                      <chr> "Market Saturation & Utilization State-Coun…
 #> $ description                <chr> "The Market Saturation and Utilization Stat…
-#> $ landing_page               <chr> "http://data.cms.gov/summary-statistics-on-…
-#> $ modified                   <date> 2025-09-15
-#> $ keyword                    <list> <"National", "States & Territories", "Coun…
-#> $ described_by               <chr> "http://data.cms.gov/resources/market-satu…
+#> $ landing_page               <df[,3]> <data.frame[1 x 3]>
+#> $ modified                   <date> 2026-06-10
+#> $ keyword                    <list> <"National", "States & Territories", "Co…
+#> $ described_by               <df[,4]> <data.frame[1 x 4]>
 #> $ fn                         <chr> "Market Saturation - CPI"
 #> $ has_email                  <chr> "MarketSaturation@cms.hhs.gov"
-#> $ identifier                 <chr> "http://data.cms.gov/data-api/v1/dataset/89…
-#> $ start                      <date> 2024-01-01
-#> $ end                        <date> 2024-12-31
-#> $ references                 <chr> "http://data.cms.gov/resources/market-satur…
-#> $ distribution_resources_api <chr> "https://data.cms.gov/data-api/v1/dataset-r…
-#> $ distribution_description   <chr> "latest"
+#> $ identifier                 <chr> "https://data.cms.gov/data-api/v1/dataset/…
+#> $ start                      <date> NA
+#> $ end                        <date> NA
+#> $ references                 <chr> "https://data.cms.gov/resources/market-sat…
+#> $ distribution_resources_api <chr> "https://data.cms.gov/data-api/v1/datase…
 #> $ distribution_title         <chr> "Market Saturation & Utilization StateCount…
-#> $ distribution_modified      <date> 2025-09-15
-#> $ distribution_start         <date> 2024-01-01
-#> $ distribution_end           <date> 2024-12-31
+#> $ distribution_described_by  <df[,4]> <data.frame[1 x 4]>
+#> $ distribution_modified      <date> 2026-06-10
+#> $ distribution_start         <date> NA
+#> $ distribution_end           <date> NA
+#> $ distribution_license       <chr> "https://www.usa.gov/government-works"
+#> $ distribution_description   <chr> "latest"
 #> $ media_type                 <chr> "API"
-#> $ data_link                  <chr> "http://data.cms.gov/data-api/v1/dataset/8…
+#> $ data_link                  <chr> "https://data.cms.gov/data-api/v1/dataset/8…
 ```
