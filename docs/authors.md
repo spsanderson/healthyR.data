@@ -10,14 +10,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/spsanderson/healthyR.data/blob/HEAD/DESCRIPTION)
 
-Sanderson S (2025). *healthyR.data: Data Only Package to 'healthyR'*. R
-package version 1.2.0.9000,
+Sanderson S (2026). *healthyR.data: Data Only Package to 'healthyR'*. R
+package version 1.2.1.9000,
 <https://github.com/spsanderson/healthyR.data>.
 
     @Manual{,
       title = {healthyR.data: Data Only Package to 'healthyR'},
       author = {Steven Sanderson},
-      year = {2025},
-      note = {R package version 1.2.0.9000},
+      year = {2026},
+      note = {R package version 1.2.1.9000},
       url = {https://github.com/spsanderson/healthyR.data},
     }
